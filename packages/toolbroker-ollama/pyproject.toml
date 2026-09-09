@@ -1,6 +1,6 @@
 [project]
 name = "toolbroker-ollama"
-version = "0.1.0.dev0"
+version = "0.1.0"
 description = "Ollama embeddings for ToolBroker."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -15,7 +15,7 @@ classifiers = [
 # Deliberately no HTTP dependency: Ollama's embed endpoint is a single JSON
 # POST, and the stdlib covers it. Callers who want pooling or retries inject
 # their own transport.
-dependencies = ["toolbroker>=0.1.0.dev0"]
+dependencies = ["toolbroker>=0.1.0"]
 
 [project.entry-points."toolbroker.embedders"]
 ollama = "toolbroker_ollama:OllamaEmbedder"

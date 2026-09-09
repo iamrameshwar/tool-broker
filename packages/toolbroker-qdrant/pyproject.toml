@@ -1,6 +1,6 @@
 [project]
 name = "toolbroker-qdrant"
-version = "0.1.0.dev0"
+version = "0.1.0"
 description = "Qdrant vector store for ToolBroker."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -12,7 +12,7 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Typing :: Typed",
 ]
-dependencies = ["toolbroker>=0.1.0.dev0", "qdrant-client>=1.9"]
+dependencies = ["toolbroker>=0.1.0", "qdrant-client>=1.9"]
 
 [project.entry-points."toolbroker.stores"]
 qdrant = "toolbroker_qdrant:QdrantStore"

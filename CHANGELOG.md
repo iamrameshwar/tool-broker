@@ -6,7 +6,10 @@ follows [semantic versioning](docs/stability.md) strictly.
 
 ## [Unreleased]
 
-Pre-1.0. The public API is not frozen; see [API stability](docs/stability.md).
+## [0.1.0] - 2026-09-09
+
+First release. Pre-1.0: the public API is not frozen, and retrieval results are
+never an API — see [API stability](docs/stability.md).
 
 ### Added
 

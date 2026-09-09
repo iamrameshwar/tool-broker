@@ -1,6 +1,6 @@
 [project]
 name = "toolbroker-crewai"
-version = "0.1.0.dev0"
+version = "0.1.0"
 description = "CrewAI adapter for ToolBroker."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -12,7 +12,7 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Typing :: Typed",
 ]
-dependencies = ["toolbroker>=0.1.0.dev0", "crewai>=0.80"]
+dependencies = ["toolbroker>=0.1.0", "crewai>=0.80"]
 
 [project.entry-points."toolbroker.adapters"]
 crewai = "toolbroker_crewai:CrewAIAdapter"

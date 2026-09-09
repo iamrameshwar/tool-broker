@@ -14,6 +14,8 @@ tool definitions belong in the prompt and explains why.
 
 from __future__ import annotations
 
+from importlib import metadata as _metadata
+
 from . import aio
 from .aliases import AliasLearner
 from .calibrate import CalibrationReport, calibrate_floor
@@ -81,7 +83,14 @@ from .types import (
 )
 from .usage import UsageTracker
 
-__version__ = "0.1.0.dev0"
+# Read from the installed metadata rather than repeated here. Two sources of
+# truth drift silently and in the worst possible direction: `pip show` said
+# 0.1.0 while `toolbroker --version` said 0.1.0.dev0, which is exactly the sort
+# of thing nobody notices until a bug report quotes the wrong one.
+try:
+    __version__ = _metadata.version("toolbroker")
+except _metadata.PackageNotFoundError:  # pragma: no cover - source tree, uninstalled
+    __version__ = "0.0.0+unknown"
 
 __all__ = [
     "DROP",

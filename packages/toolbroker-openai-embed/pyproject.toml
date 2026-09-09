@@ -1,6 +1,6 @@
 [project]
 name = "toolbroker-openai-embed"
-version = "0.1.0.dev0"
+version = "0.1.0"
 description = "OpenAI and Azure OpenAI embeddings for ToolBroker."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -12,7 +12,7 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Typing :: Typed",
 ]
-dependencies = ["toolbroker>=0.1.0.dev0", "openai>=1.30"]
+dependencies = ["toolbroker>=0.1.0", "openai>=1.30"]
 
 [project.entry-points."toolbroker.embedders"]
 openai = "toolbroker_openai_embed:OpenAIEmbedder"

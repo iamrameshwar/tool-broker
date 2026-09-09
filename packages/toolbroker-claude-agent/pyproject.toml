@@ -1,6 +1,6 @@
 [project]
 name = "toolbroker-claude-agent"
-version = "0.1.0.dev0"
+version = "0.1.0"
 description = "Claude Agent SDK adapter for ToolBroker."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -12,7 +12,7 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Typing :: Typed",
 ]
-dependencies = ["toolbroker>=0.1.0.dev0", "claude-agent-sdk>=0.1"]
+dependencies = ["toolbroker>=0.1.0", "claude-agent-sdk>=0.1"]
 
 [project.entry-points."toolbroker.adapters"]
 claude-agent = "toolbroker_claude_agent:ClaudeAgentAdapter"

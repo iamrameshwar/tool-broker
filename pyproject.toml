@@ -1,6 +1,6 @@
 [project]
 name = "toolbroker"
-version = "0.1.0.dev0"
+version = "0.1.0"
 description = "Broker the right 5 tools out of 500 to your agent, on any framework, with rules you control."
 readme = "README.md"
 requires-python = ">=3.10"

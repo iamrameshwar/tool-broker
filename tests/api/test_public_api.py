@@ -107,3 +107,24 @@ def test_the_extension_interfaces_are_importable():
 
     for name in ("Source", "Embedder", "Store", "Retriever", "Reranker", "Policy", "Adapter"):
         assert hasattr(toolbroker, name), f"toolbroker.{name} is not exported"
+
+
+def test_version_matches_the_packaging_metadata():
+    """`__version__` and the distribution must agree.
+
+    They drifted once, in the direction that is hardest to spot: `pip show`
+    reported 0.1.0 while `toolbroker --version` reported 0.1.0.dev0, because the
+    version was written down in two places and only one was bumped.
+    """
+    from importlib import metadata
+    from pathlib import Path
+
+    import tomllib
+
+    import toolbroker
+
+    declared = tomllib.loads(
+        Path(__file__).resolve().parents[2].joinpath("pyproject.toml").read_text()
+    )["project"]["version"]
+    assert toolbroker.__version__ == declared
+    assert metadata.version("toolbroker") == declared

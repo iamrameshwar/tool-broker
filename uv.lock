@@ -4979,7 +4979,7 @@ wheels = [
 
 [[package]]
 name = "toolbroker"
-version = "0.1.0.dev0"
+version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "pydantic" },
@@ -5090,7 +5090,7 @@ dev = [
 
 [[package]]
 name = "toolbroker-chroma"
-version = "0.1.0.dev0"
+version = "0.1.0"
 source = { editable = "packages/toolbroker-chroma" }
 dependencies = [
     { name = "chromadb" },
@@ -5105,7 +5105,7 @@ requires-dist = [
 
 [[package]]
 name = "toolbroker-claude-agent"
-version = "0.1.0.dev0"
+version = "0.1.0"
 source = { editable = "packages/toolbroker-claude-agent" }
 dependencies = [
     { name = "claude-agent-sdk" },
@@ -5120,7 +5120,7 @@ requires-dist = [
 
 [[package]]
 name = "toolbroker-crewai"
-version = "0.1.0.dev0"
+version = "0.1.0"
 source = { editable = "packages/toolbroker-crewai" }
 dependencies = [
     { name = "crewai" },
@@ -5135,7 +5135,7 @@ requires-dist = [
 
 [[package]]
 name = "toolbroker-langgraph"
-version = "0.1.0.dev0"
+version = "0.1.0"
 source = { editable = "packages/toolbroker-langgraph" }
 dependencies = [
     { name = "langchain-core" },
@@ -5150,7 +5150,7 @@ requires-dist = [
 
 [[package]]
 name = "toolbroker-ollama"
-version = "0.1.0.dev0"
+version = "0.1.0"
 source = { editable = "packages/toolbroker-ollama" }
 dependencies = [
     { name = "toolbroker" },
@@ -5161,7 +5161,7 @@ requires-dist = [{ name = "toolbroker", editable = "." }]
 
 [[package]]
 name = "toolbroker-openai-agents"
-version = "0.1.0.dev0"
+version = "0.1.0"
 source = { editable = "packages/toolbroker-openai-agents" }
 dependencies = [
     { name = "openai-agents" },
@@ -5176,7 +5176,7 @@ requires-dist = [
 
 [[package]]
 name = "toolbroker-openai-embed"
-version = "0.1.0.dev0"
+version = "0.1.0"
 source = { editable = "packages/toolbroker-openai-embed" }
 dependencies = [
     { name = "openai" },
@@ -5191,7 +5191,7 @@ requires-dist = [
 
 [[package]]
 name = "toolbroker-pgvector"
-version = "0.1.0.dev0"
+version = "0.1.0"
 source = { editable = "packages/toolbroker-pgvector" }
 dependencies = [
     { name = "pgvector" },
@@ -5208,7 +5208,7 @@ requires-dist = [
 
 [[package]]
 name = "toolbroker-qdrant"
-version = "0.1.0.dev0"
+version = "0.1.0"
 source = { editable = "packages/toolbroker-qdrant" }
 dependencies = [
     { name = "qdrant-client" },
