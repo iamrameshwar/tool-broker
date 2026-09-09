@@ -1,22 +1,27 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 
 import pytest
+import yaml
 
 from toolbroker.cli.main import main
 
-CONFIG = """
-embedder:
-  name: hashing
-  options: {dim: 64}
-sources:
-  - type: json
-    name: fixtures
-    options: {path: "%s"}
-policy:
-  default_k: 2
-"""
+
+# Built as data and serialised, never interpolated into a YAML template. A
+# Windows tmp path is `C:\Users\...`, and inside a double-quoted YAML scalar
+# `\U` starts an escape sequence expecting eight hex digits — so the template
+# version parsed fine on POSIX and failed on every Windows runner.
+def _config(tools_file: Path) -> str:
+    return yaml.safe_dump(
+        {
+            "embedder": {"name": "hashing", "options": {"dim": 64}},
+            "sources": [{"type": "json", "name": "fixtures", "options": {"path": str(tools_file)}}],
+            "policy": {"default_k": 2},
+        }
+    )
+
 
 TOOLS = [
     {"name": "search_orders", "description": "Find recent orders for a customer"},
@@ -30,7 +35,7 @@ def config_path(tmp_path):
     tools_file = tmp_path / "tools.json"
     tools_file.write_text(json.dumps(TOOLS))
     config = tmp_path / "toolbroker.yaml"
-    config.write_text(CONFIG % tools_file)
+    config.write_text(_config(tools_file), encoding="utf-8")
     return config
 
 
