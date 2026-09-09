@@ -36,3 +36,4 @@ nav:
   - Extending: extending.md
   - Benchmarking: benchmarking.md
   - API stability: stability.md
+  - Releasing: releasing.md
