@@ -1,0 +1,266 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  UV_FROZEN: "1"
+
+jobs:
+  lint:
+    name: lint and types
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv sync --all-extras --all-packages
+      - name: ruff check
+        run: uv run ruff check .
+      - name: ruff format
+        run: uv run ruff format --check .
+      - name: mypy
+        run: uv run --with mypy mypy
+
+  test:
+    name: py${{ matrix.python }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.10", "3.11", "3.12", "3.13", "3.14"]
+        os: [ubuntu-latest]
+        include:
+          # The floor and the ceiling on other platforms, so path and
+          # event-loop differences surface without a full 12-way matrix.
+          - {python: "3.10", os: macos-latest}
+          - {python: "3.14", os: windows-latest}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv sync --python ${{ matrix.python }} --extra mcp --extra yaml --extra otel
+      - name: public API surface must not drift
+        if: matrix.python == '3.12' && matrix.os == 'ubuntu-latest'
+        run: uv run pytest tests/api -q
+      - name: unit and conformance tests
+        run: uv run --python ${{ matrix.python }} pytest -q --cov --cov-report=xml
+      - name: upload coverage
+        if: matrix.python == '3.12' && matrix.os == 'ubuntu-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: coverage.xml
+
+  plugins:
+    # Every plugin runs the same conformance suite the built-ins run. None of
+    # them needs a service or an API key: the store plugins run in-process,
+    # and the hosted-embedder tests use a fake client. The Ollama suite has a
+    # live path that skips itself when no server is reachable.
+    name: plugin conformance
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        package:
+          - toolbroker-qdrant
+          - toolbroker-chroma
+          - toolbroker-langgraph
+          - toolbroker-openai-agents
+          - toolbroker-claude-agent
+          - toolbroker-ollama
+          - toolbroker-openai-embed
+          - toolbroker-crewai
+          # toolbroker-pgvector has its own job; it needs a Postgres service.
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv sync --all-packages
+      - run: uv run pytest packages/${{ matrix.package }} -q
+
+  pgvector:
+    # The only plugin that needs a real service. Kept as its own job so the
+    # rest of the matrix stays serviceless and fast.
+    name: pgvector conformance
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_PASSWORD: toolbroker
+          POSTGRES_DB: toolbroker
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      TOOLBROKER_PG_DSN: postgresql://postgres:toolbroker@localhost:5432/toolbroker
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv sync --all-packages
+      - name: the suite must actually run, not skip
+        run: |
+          uv run pytest packages/toolbroker-pgvector -q --no-header -rN \
+            | tee /tmp/pg.txt
+          grep -qE '[0-9]+ passed' /tmp/pg.txt
+          if grep -q 'skipped' /tmp/pg.txt; then
+            echo "::error::pgvector tests skipped -- the service was not reachable"
+            exit 1
+          fi
+
+  minimal-install:
+    # The zero-config promise: `pip install toolbroker` alone must index and
+    # select, offline, with no extras. Easy to break by adding an import.
+    name: core with no extras
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv venv --python 3.10
+      - run: uv pip install .
+      - name: quickstart must work with pydantic only
+        run: uv run --no-project python examples/01_quickstart.py
+
+  examples:
+    name: examples run
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv sync --all-extras
+      - run: |
+          for example in examples/*.py; do
+            echo "--- $example"
+            uv run python "$example" > /dev/null
+          done
+
+  benchmark:
+    # The offline path only: no API key, no network, a few seconds. Catches a
+    # broken harness before someone tries to run it against a paid provider.
+    name: benchmark harness
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv sync --all-extras
+      - run: uv run python bench/generate.py
+      - run: uv run python bench/run.py
+      - run: uv run python bench/e2e.py --caller lexical --sizes 50 200
+      - run: uv run python bench/ablate.py --sizes 200
+      - run: uv run python bench/usage.py --size 200
+      - run: uv run python bench/threshold.py --sizes 200 --floors 0.0 0.5 0.6
+      - run: uv run python bench/ceiling.py --sizes 200 --depths 5 20 100
+      - run: uv run python bench/multiturn.py --sizes 200 --turns 0 1 --weights 2
+      - name: calibration must agree with the labelled sweep
+        run: |
+          uv run python - <<'PY'
+          import json, sys
+          from pathlib import Path
+          sys.path.insert(0, "bench")
+          from toolbroker import ToolBroker, calibrate_floor
+          from toolbroker.sources import StaticJSONSource
+
+          data = Path("bench/data")
+          scope = ToolBroker()
+          scope.add_source(StaticJSONSource(data / "tools_200.json"))
+          scope.index()
+          cases = [
+              json.loads(line)
+              for line in (data / "queries_200.jsonl").read_text().splitlines()
+              if line.strip()
+          ]
+          samples = [c["query"] for c in cases if c["expected"]][:60]
+          report = calibrate_floor(scope, samples=samples, k=5)
+
+          # A floor derived from noise alone must sit below the point where it
+          # starts emptying real queries, or the recommendation is harmful.
+          floor = report.recommended(percentile=90)
+          worst = max(s.samples_emptied for s in report.suggestions if s.floor <= floor)
+          assert worst < 0.10, f"floor {floor:.3f} would empty {worst:.0%} of real queries"
+          print(f"calibrated floor {floor:.3f}, empties {worst:.0%} of sample queries")
+          PY
+      - name: the committed results artifact must not be stale
+        # bench/results_lexical.md is published as evidence, and it silently
+        # kept 42-query numbers after the labelled set grew to 290. Checking
+        # the case count catches exactly that without being brittle about the
+        # accuracy figures, which move whenever retrieval changes.
+        run: |
+          uv run python - <<'PY'
+          import re, sys
+          from pathlib import Path
+          sys.path.insert(0, "bench")
+          from queries import QUERIES
+
+          report = Path("bench/results_lexical.md").read_text(encoding="utf-8")
+          match = re.search(r"^cases: (\d+)$", report, re.MULTILINE)
+          assert match, "bench/results_lexical.md has no 'cases:' line"
+          reported, actual = int(match.group(1)), len(QUERIES)
+          assert reported == actual, (
+              f"bench/results_lexical.md was generated from {reported} queries but the "
+              f"labelled set now has {actual}. Regenerate it:\n"
+              f"  python bench/e2e.py --caller lexical --sizes 50 200 1000 "
+              f"--out bench/results_lexical.md"
+          )
+          print(f"results artifact is current ({actual} queries)")
+          PY
+
+      - name: labels must reference tools that exist
+        run: |
+          uv run python - <<'PY'
+          import sys; sys.path.insert(0, "bench")
+          from corpus import core_tool_ids
+          from queries import QUERIES
+          known = core_tool_ids()
+          unknown = sorted({t for _, expected, _ in QUERIES for t in expected if t not in known})
+          assert not unknown, f"labelled queries name tools that do not exist: {unknown}"
+          texts = [q for q, _, _ in QUERIES]
+          dupes = sorted({q for q in texts if texts.count(q) > 1})
+          assert not dupes, f"duplicate queries: {dupes}"
+          print(f"{len(QUERIES)} labelled queries, all valid")
+          PY
+
+  security:
+    # The bypasses in SECURITY.md were all silent: a rule that looks applied and
+    # is not. Their regression tests get their own job so a failure is obvious.
+    name: policy bypass regressions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv sync --all-extras
+      - run: uv run pytest tests/unit/test_policy_bypass.py tests/integration/test_proxy.py -q
+
+  build:
+    name: build and verify metadata
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv build
+      - run: uv run --with twine twine check dist/*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/

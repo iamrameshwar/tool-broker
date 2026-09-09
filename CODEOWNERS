@@ -1,0 +1,11 @@
+# Default owner for everything.
+*                       @rameshwartrivedi
+
+# The public contract. Changes here ripple through every plugin, so they get
+# reviewed even when the diff looks small.
+/src/toolbroker/protocols.py       @rameshwartrivedi
+/src/toolbroker/types.py           @rameshwartrivedi
+/src/toolbroker/testing/           @rameshwartrivedi
+
+# The rule the project is organised around.
+/CONTRIBUTING.md                  @rameshwartrivedi

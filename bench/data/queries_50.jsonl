@@ -1,0 +1,290 @@
+{"query": "refund a payment", "expected": ["billing/issue_refund"], "category": "paraphrase"}
+{"query": "raise a new invoice for an account", "expected": ["billing/create_invoice"], "category": "paraphrase"}
+{"query": "void an unpaid invoice", "expected": ["billing/void_invoice"], "category": "paraphrase"}
+{"query": "show payments received on an account", "expected": ["billing/list_payments"], "category": "paraphrase"}
+{"query": "change the billing plan for an account", "expected": ["billing/update_subscription"], "category": "paraphrase"}
+{"query": "how many units are on hand for a SKU", "expected": ["inventory/get_stock_level"], "category": "paraphrase"}
+{"query": "correct the recorded quantity for a SKU", "expected": ["inventory/adjust_stock"], "category": "paraphrase"}
+{"query": "which SKUs are below their reorder point", "expected": ["inventory/list_low_stock"], "category": "paraphrase"}
+{"query": "move units between warehouses", "expected": ["inventory/transfer_stock"], "category": "paraphrase"}
+{"query": "hold units against an order", "expected": ["inventory/reserve_stock"], "category": "paraphrase"}
+{"query": "book a shipment with a carrier", "expected": ["shipping/create_shipment"], "category": "paraphrase"}
+{"query": "where is a shipment right now", "expected": ["shipping/track_shipment"], "category": "paraphrase"}
+{"query": "cancel a shipment before it is picked up", "expected": ["shipping/cancel_shipment"], "category": "paraphrase"}
+{"query": "which carriers serve a destination", "expected": ["shipping/list_carriers"], "category": "paraphrase"}
+{"query": "predicted arrival date for a route", "expected": ["shipping/estimate_delivery"], "category": "paraphrase"}
+{"query": "add a user account", "expected": ["identity/create_user"], "category": "paraphrase"}
+{"query": "disable a user account", "expected": ["identity/deactivate_user"], "category": "paraphrase"}
+{"query": "send someone a password reset link", "expected": ["identity/reset_password"], "category": "paraphrase"}
+{"query": "issue a new API key and revoke the old one", "expected": ["identity/rotate_api_key"], "category": "paraphrase"}
+{"query": "what roles does this user have", "expected": ["identity/list_permissions"], "category": "paraphrase"}
+{"query": "search application logs over a time range", "expected": ["observability/query_logs"], "category": "paraphrase"}
+{"query": "time series for a service metric", "expected": ["observability/get_metrics"], "category": "paraphrase"}
+{"query": "which alerts are firing", "expected": ["observability/list_alerts"], "category": "paraphrase"}
+{"query": "mute an alert for a while", "expected": ["observability/silence_alert"], "category": "paraphrase"}
+{"query": "fetch a distributed trace by id", "expected": ["observability/get_trace"], "category": "paraphrase"}
+{"query": "restart a running service", "expected": ["infrastructure/restart_service"], "category": "paraphrase"}
+{"query": "change the replica count", "expected": ["infrastructure/scale_deployment"], "category": "paraphrase"}
+{"query": "list compute instances in a region", "expected": ["infrastructure/list_instances"], "category": "paraphrase"}
+{"query": "revert a service to its previous release", "expected": ["infrastructure/rollback_release"], "category": "paraphrase"}
+{"query": "roll out a build to an environment", "expected": ["infrastructure/deploy_release"], "category": "paraphrase"}
+{"query": "find contacts by email or company", "expected": ["crm/search_contacts"], "category": "paraphrase"}
+{"query": "open a sales opportunity", "expected": ["crm/create_deal"], "category": "paraphrase"}
+{"query": "record a call or meeting", "expected": ["crm/log_activity"], "category": "paraphrase"}
+{"query": "combine duplicate contact records", "expected": ["crm/merge_contacts"], "category": "paraphrase"}
+{"query": "edit fields on a contact", "expected": ["crm/update_contact"], "category": "paraphrase"}
+{"query": "find support tickets", "expected": ["support/search_tickets"], "category": "paraphrase"}
+{"query": "open a support ticket", "expected": ["support/create_ticket"], "category": "paraphrase"}
+{"query": "raise a ticket's priority and reassign it", "expected": ["support/escalate_ticket"], "category": "paraphrase"}
+{"query": "mark a ticket resolved", "expected": ["support/close_ticket"], "category": "paraphrase"}
+{"query": "tickets past their response deadline", "expected": ["support/list_sla_breaches"], "category": "paraphrase"}
+{"query": "the customer wants their money back", "expected": ["billing/issue_refund"], "category": "goal"}
+{"query": "bill this client for last month's work", "expected": ["billing/create_invoice"], "category": "goal"}
+{"query": "we sent that bill by mistake, undo it", "expected": ["billing/void_invoice"], "category": "goal"}
+{"query": "has this customer actually paid us", "expected": ["billing/list_payments"], "category": "goal"}
+{"query": "upgrade them to the annual plan", "expected": ["billing/update_subscription"], "category": "goal"}
+{"query": "do we have any of these left", "expected": ["inventory/get_stock_level"], "category": "goal"}
+{"query": "the count in the system is wrong", "expected": ["inventory/adjust_stock"], "category": "goal"}
+{"query": "what do we need to reorder", "expected": ["inventory/list_low_stock"], "category": "goal"}
+{"query": "send stock from the London depot to Berlin", "expected": ["inventory/transfer_stock"], "category": "goal"}
+{"query": "set these units aside for this order", "expected": ["inventory/reserve_stock"], "category": "goal"}
+{"query": "get this parcel on its way", "expected": ["shipping/create_shipment"], "category": "goal"}
+{"query": "the customer wants to know where their parcel is", "expected": ["shipping/track_shipment"], "category": "goal"}
+{"query": "stop that delivery going out", "expected": ["shipping/cancel_shipment"], "category": "goal"}
+{"query": "who can deliver to rural Ireland", "expected": ["shipping/list_carriers"], "category": "goal"}
+{"query": "when will it get there", "expected": ["shipping/estimate_delivery"], "category": "goal"}
+{"query": "a new engineer is starting on Monday", "expected": ["identity/create_user"], "category": "goal"}
+{"query": "someone left the company today", "expected": ["identity/deactivate_user"], "category": "goal"}
+{"query": "they cannot get in and forgot their password", "expected": ["identity/reset_password"], "category": "goal"}
+{"query": "a secret got committed to a public repo", "expected": ["identity/rotate_api_key"], "category": "goal"}
+{"query": "can this person see the finance dashboard", "expected": ["identity/list_permissions"], "category": "goal"}
+{"query": "what happened around three this morning", "expected": ["observability/query_logs"], "category": "goal"}
+{"query": "show me how latency has trended this week", "expected": ["observability/get_metrics"], "category": "goal"}
+{"query": "what is currently broken", "expected": ["observability/list_alerts"], "category": "goal"}
+{"query": "stop paging me about this, we know", "expected": ["observability/silence_alert"], "category": "goal"}
+{"query": "follow this one request all the way through", "expected": ["observability/get_trace"], "category": "goal"}
+{"query": "turn it off and on again", "expected": ["infrastructure/restart_service"], "category": "goal"}
+{"query": "we need more capacity for the sale", "expected": ["infrastructure/scale_deployment"], "category": "goal"}
+{"query": "what machines do we have running", "expected": ["infrastructure/list_instances"], "category": "goal"}
+{"query": "that release broke everything, undo it", "expected": ["infrastructure/rollback_release"], "category": "goal"}
+{"query": "ship it to staging", "expected": ["infrastructure/deploy_release"], "category": "goal"}
+{"query": "who is our contact at that company", "expected": ["crm/search_contacts"], "category": "goal"}
+{"query": "this lead looks promising, track it", "expected": ["crm/create_deal"], "category": "goal"}
+{"query": "note that I spoke to them yesterday", "expected": ["crm/log_activity"], "category": "goal"}
+{"query": "we have the same person in here twice", "expected": ["crm/merge_contacts"], "category": "goal"}
+{"query": "their job title changed", "expected": ["crm/update_contact"], "category": "goal"}
+{"query": "has anyone else reported this problem", "expected": ["support/search_tickets"], "category": "goal"}
+{"query": "log this complaint properly", "expected": ["support/create_ticket"], "category": "goal"}
+{"query": "this needs a senior person right now", "expected": ["support/escalate_ticket"], "category": "goal"}
+{"query": "that is sorted, we can wrap it up", "expected": ["support/close_ticket"], "category": "goal"}
+{"query": "which customers have we kept waiting too long", "expected": ["support/list_sla_breaches"], "category": "goal"}
+{"query": "SKU on hand qty", "expected": ["inventory/get_stock_level"], "category": "jargon"}
+{"query": "stock take variance correction", "expected": ["inventory/adjust_stock"], "category": "jargon"}
+{"query": "ROP breach report", "expected": ["inventory/list_low_stock"], "category": "jargon"}
+{"query": "inter-DC stock movement", "expected": ["inventory/transfer_stock"], "category": "jargon"}
+{"query": "ATP allocation for an order", "expected": ["inventory/reserve_stock"], "category": "jargon"}
+{"query": "chargeback reversal", "expected": ["billing/issue_refund"], "category": "jargon"}
+{"query": "AR invoice raise", "expected": ["billing/create_invoice"], "category": "jargon"}
+{"query": "credit note against an unpaid invoice", "expected": ["billing/void_invoice"], "category": "jargon"}
+{"query": "MRR plan change", "expected": ["billing/update_subscription"], "category": "jargon"}
+{"query": "remittance history", "expected": ["billing/list_payments"], "category": "jargon"}
+{"query": "p99 latency series", "expected": ["observability/get_metrics"], "category": "jargon"}
+{"query": "grep prod stderr", "expected": ["observability/query_logs"], "category": "jargon"}
+{"query": "open pages right now", "expected": ["observability/list_alerts"], "category": "jargon"}
+{"query": "snooze the pager", "expected": ["observability/silence_alert"], "category": "jargon"}
+{"query": "span waterfall for a request id", "expected": ["observability/get_trace"], "category": "jargon"}
+{"query": "bounce the pods", "expected": ["infrastructure/restart_service"], "category": "jargon"}
+{"query": "bump replicas for the sale", "expected": ["infrastructure/scale_deployment"], "category": "jargon"}
+{"query": "roll back to the last known good", "expected": ["infrastructure/rollback_release"], "category": "jargon"}
+{"query": "cut a release to prod", "expected": ["infrastructure/deploy_release"], "category": "jargon"}
+{"query": "EC2 inventory by region", "expected": ["infrastructure/list_instances"], "category": "jargon"}
+{"query": "offboard the leaver", "expected": ["identity/deactivate_user"], "category": "jargon"}
+{"query": "onboard a joiner", "expected": ["identity/create_user"], "category": "jargon"}
+{"query": "creds rotation after a leak", "expected": ["identity/rotate_api_key"], "category": "jargon"}
+{"query": "RBAC grants for a principal", "expected": ["identity/list_permissions"], "category": "jargon"}
+{"query": "SLA breach queue", "expected": ["support/list_sla_breaches"], "category": "jargon"}
+{"query": "P1 escalation", "expected": ["support/escalate_ticket"], "category": "jargon"}
+{"query": "dedupe the CRM records", "expected": ["crm/merge_contacts"], "category": "jargon"}
+{"query": "log the touchpoint", "expected": ["crm/log_activity"], "category": "jargon"}
+{"query": "open a new opp", "expected": ["crm/create_deal"], "category": "jargon"}
+{"query": "ETA for the consignment", "expected": ["shipping/estimate_delivery"], "category": "jargon"}
+{"query": "a customer says they were charged twice", "expected": ["billing/issue_refund", "billing/list_payments"], "category": "indirect"}
+{"query": "the finance team says this account was never billed", "expected": ["billing/create_invoice"], "category": "indirect"}
+{"query": "we quoted the wrong amount on that document", "expected": ["billing/void_invoice"], "category": "indirect"}
+{"query": "the warehouse count does not match the system", "expected": ["inventory/adjust_stock"], "category": "indirect"}
+{"query": "we keep running out of this item", "expected": ["inventory/list_low_stock"], "category": "indirect"}
+{"query": "a customer is asking why their order has not arrived", "expected": ["shipping/track_shipment"], "category": "indirect"}
+{"query": "the customer changed their mind before it left the building", "expected": ["shipping/cancel_shipment"], "category": "indirect"}
+{"query": "we cannot ship to that postcode with our usual courier", "expected": ["shipping/list_carriers"], "category": "indirect"}
+{"query": "someone's laptop was stolen", "expected": ["identity/deactivate_user", "identity/rotate_api_key"], "category": "indirect"}
+{"query": "a contractor's engagement ended last week", "expected": ["identity/deactivate_user"], "category": "indirect"}
+{"query": "an employee is locked out before a client call", "expected": ["identity/reset_password"], "category": "indirect"}
+{"query": "the site feels slow but nothing is down", "expected": ["observability/get_metrics"], "category": "indirect"}
+{"query": "customers report errors but our dashboard is green", "expected": ["observability/query_logs"], "category": "indirect"}
+{"query": "my phone has been buzzing all night about a known issue", "expected": ["observability/silence_alert"], "category": "indirect"}
+{"query": "one specific checkout hung and we do not know where", "expected": ["observability/get_trace"], "category": "indirect"}
+{"query": "everything went bad right after this morning's deploy", "expected": ["infrastructure/rollback_release"], "category": "indirect"}
+{"query": "the service is wedged and not recovering on its own", "expected": ["infrastructure/restart_service"], "category": "indirect"}
+{"query": "black friday traffic starts in an hour", "expected": ["infrastructure/scale_deployment"], "category": "indirect"}
+{"query": "sales says they have been emailing two different people at the same company", "expected": ["crm/merge_contacts"], "category": "indirect"}
+{"query": "a prospect finally replied and wants pricing", "expected": ["crm/create_deal"], "category": "indirect"}
+{"query": "the customer is furious and threatening to leave", "expected": ["support/escalate_ticket"], "category": "indirect"}
+{"query": "legal wants to know how long customers waited last quarter", "expected": ["support/list_sla_breaches"], "category": "indirect"}
+{"query": "the bug the customer reported has been fixed and released", "expected": ["support/close_ticket"], "category": "indirect"}
+{"query": "a caller says they emailed support last week and heard nothing", "expected": ["support/search_tickets"], "category": "indirect"}
+{"query": "we are about to promise a delivery date on a call", "expected": ["shipping/estimate_delivery"], "category": "indirect"}
+{"query": "a big order came in and we must not oversell", "expected": ["inventory/reserve_stock"], "category": "indirect"}
+{"query": "the Berlin shop is empty and London has hundreds", "expected": ["inventory/transfer_stock"], "category": "indirect"}
+{"query": "someone downgraded and is still being charged the old rate", "expected": ["billing/update_subscription"], "category": "indirect"}
+{"query": "a new starter cannot access anything on day one", "expected": ["identity/create_user", "identity/list_permissions"], "category": "indirect"}
+{"query": "we need proof of what this account has paid us", "expected": ["billing/list_payments"], "category": "indirect"}
+{"query": "cancel the invoice, not the shipment", "expected": ["billing/void_invoice"], "category": "distractor"}
+{"query": "cancel the shipment, the invoice is fine", "expected": ["shipping/cancel_shipment"], "category": "distractor"}
+{"query": "close the user account, not the ticket", "expected": ["identity/deactivate_user"], "category": "distractor"}
+{"query": "close the ticket, the account stays open", "expected": ["support/close_ticket"], "category": "distractor"}
+{"query": "list what is running, not what is alerting", "expected": ["infrastructure/list_instances"], "category": "distractor"}
+{"query": "list what is alerting, not what is running", "expected": ["observability/list_alerts"], "category": "distractor"}
+{"query": "undo the release, not the invoice", "expected": ["infrastructure/rollback_release"], "category": "distractor"}
+{"query": "undo the invoice, the release is fine", "expected": ["billing/void_invoice"], "category": "distractor"}
+{"query": "search the tickets, not the contacts", "expected": ["support/search_tickets"], "category": "distractor"}
+{"query": "search the contacts, not the tickets", "expected": ["crm/search_contacts"], "category": "distractor"}
+{"query": "move the stock, do not change the count", "expected": ["inventory/transfer_stock"], "category": "distractor"}
+{"query": "change the count, do not move anything", "expected": ["inventory/adjust_stock"], "category": "distractor"}
+{"query": "reset the password, do not rotate the key", "expected": ["identity/reset_password"], "category": "distractor"}
+{"query": "rotate the key, the password is fine", "expected": ["identity/rotate_api_key"], "category": "distractor"}
+{"query": "track the parcel, do not book a new one", "expected": ["shipping/track_shipment"], "category": "distractor"}
+{"query": "book a new parcel, the old one is delivered", "expected": ["shipping/create_shipment"], "category": "distractor"}
+{"query": "refund the payment, do not void the invoice", "expected": ["billing/issue_refund"], "category": "distractor"}
+{"query": "scale the deployment, do not restart it", "expected": ["infrastructure/scale_deployment"], "category": "distractor"}
+{"query": "restart it, do not scale it", "expected": ["infrastructure/restart_service"], "category": "distractor"}
+{"query": "silence the alert, do not fix the service", "expected": ["observability/silence_alert"], "category": "distractor"}
+{"query": "update the contact, do not merge anything", "expected": ["crm/update_contact"], "category": "distractor"}
+{"query": "merge the contacts, do not edit them", "expected": ["crm/merge_contacts"], "category": "distractor"}
+{"query": "escalate it, do not close it", "expected": ["support/escalate_ticket"], "category": "distractor"}
+{"query": "what stock is low, not what is out of stock right now", "expected": ["inventory/list_low_stock"], "category": "distractor"}
+{"query": "logs for the deploy, not the deploy itself", "expected": ["observability/query_logs"], "category": "distractor"}
+{"query": "metrics about shipments, not shipment tracking", "expected": ["observability/get_metrics"], "category": "distractor"}
+{"query": "permissions for the user, do not change them", "expected": ["identity/list_permissions"], "category": "distractor"}
+{"query": "payments on the account, not a new invoice", "expected": ["billing/list_payments"], "category": "distractor"}
+{"query": "who the carriers are, not where the parcel is", "expected": ["shipping/list_carriers"], "category": "distractor"}
+{"query": "record the call, do not open a deal", "expected": ["crm/log_activity"], "category": "distractor"}
+{"query": "find the customer's order and refund it", "expected": ["billing/list_payments", "billing/issue_refund"], "category": "multi"}
+{"query": "someone left: disable them and rotate their keys", "expected": ["identity/deactivate_user", "identity/rotate_api_key"], "category": "multi"}
+{"query": "the deploy broke prod, roll back and tell me what the logs said", "expected": ["infrastructure/rollback_release", "observability/query_logs"], "category": "multi"}
+{"query": "check stock then reserve it for this order", "expected": ["inventory/get_stock_level", "inventory/reserve_stock"], "category": "multi"}
+{"query": "book the shipment and tell the customer when it arrives", "expected": ["shipping/create_shipment", "shipping/estimate_delivery"], "category": "multi"}
+{"query": "look up the ticket and escalate it", "expected": ["support/search_tickets", "support/escalate_ticket"], "category": "multi"}
+{"query": "find the duplicate contacts and merge them", "expected": ["crm/search_contacts", "crm/merge_contacts"], "category": "multi"}
+{"query": "silence the alert then look at the metrics", "expected": ["observability/silence_alert", "observability/get_metrics"], "category": "multi"}
+{"query": "scale up and then confirm the instances came online", "expected": ["infrastructure/scale_deployment", "infrastructure/list_instances"], "category": "multi"}
+{"query": "void the invoice and raise a corrected one", "expected": ["billing/void_invoice", "billing/create_invoice"], "category": "multi"}
+{"query": "onboard the new hire and check what access they got", "expected": ["identity/create_user", "identity/list_permissions"], "category": "multi"}
+{"query": "we are low on this SKU, move some from another warehouse", "expected": ["inventory/list_low_stock", "inventory/transfer_stock"], "category": "multi"}
+{"query": "cancel the shipment and refund the customer", "expected": ["shipping/cancel_shipment", "billing/issue_refund"], "category": "multi"}
+{"query": "close the ticket and log the call against the contact", "expected": ["support/close_ticket", "crm/log_activity"], "category": "multi"}
+{"query": "which alerts are firing and what does the trace show", "expected": ["observability/list_alerts", "observability/get_trace"], "category": "multi"}
+{"query": "open a ticket and escalate it straight away", "expected": ["support/create_ticket", "support/escalate_ticket"], "category": "multi"}
+{"query": "check they paid before you ship anything", "expected": ["billing/list_payments", "shipping/create_shipment"], "category": "multi"}
+{"query": "reset their password and confirm their roles", "expected": ["identity/reset_password", "identity/list_permissions"], "category": "multi"}
+{"query": "restart it and watch the error rate", "expected": ["infrastructure/restart_service", "observability/get_metrics"], "category": "multi"}
+{"query": "update the contact and open a deal for them", "expected": ["crm/update_contact", "crm/create_deal"], "category": "multi"}
+{"query": "cancel it", "expected": ["billing/void_invoice", "shipping/cancel_shipment"], "category": "ambiguous"}
+{"query": "undo that", "expected": ["billing/void_invoice", "infrastructure/rollback_release"], "category": "ambiguous"}
+{"query": "close it", "expected": ["support/close_ticket", "identity/deactivate_user"], "category": "ambiguous"}
+{"query": "what is the status", "expected": ["shipping/track_shipment", "observability/list_alerts"], "category": "ambiguous"}
+{"query": "search for it", "expected": ["support/search_tickets", "crm/search_contacts", "observability/query_logs"], "category": "ambiguous"}
+{"query": "make a new one", "expected": ["support/create_ticket", "billing/create_invoice", "identity/create_user"], "category": "ambiguous"}
+{"query": "this is urgent", "expected": ["support/escalate_ticket"], "category": "ambiguous"}
+{"query": "something is wrong with the account", "expected": ["billing/list_payments", "identity/list_permissions"], "category": "ambiguous"}
+{"query": "fix the numbers", "expected": ["inventory/adjust_stock", "billing/void_invoice"], "category": "ambiguous"}
+{"query": "the customer is unhappy", "expected": ["support/escalate_ticket", "billing/issue_refund"], "category": "ambiguous"}
+{"query": "who is this person", "expected": ["crm/search_contacts", "identity/list_permissions"], "category": "ambiguous"}
+{"query": "stop it", "expected": ["shipping/cancel_shipment", "observability/silence_alert", "infrastructure/restart_service"], "category": "ambiguous"}
+{"query": "show me the history", "expected": ["billing/list_payments", "crm/log_activity", "observability/query_logs"], "category": "ambiguous"}
+{"query": "we need more", "expected": ["infrastructure/scale_deployment", "inventory/transfer_stock"], "category": "ambiguous"}
+{"query": "check it before we commit", "expected": ["inventory/get_stock_level", "shipping/estimate_delivery"], "category": "ambiguous"}
+{"query": "who won the 1974 world cup", "expected": [], "category": "negative"}
+{"query": "translate this poem into old norse", "expected": [], "category": "negative"}
+{"query": "what is the airspeed velocity of an unladen swallow", "expected": [], "category": "negative"}
+{"query": "write me a haiku about deployment", "expected": [], "category": "negative"}
+{"query": "what is the capital of Mongolia", "expected": [], "category": "negative"}
+{"query": "explain quantum entanglement to a child", "expected": [], "category": "negative"}
+{"query": "recommend a restaurant in Lisbon", "expected": [], "category": "negative"}
+{"query": "what year did the Berlin wall come down", "expected": [], "category": "negative"}
+{"query": "convert 40 celsius to fahrenheit", "expected": [], "category": "negative"}
+{"query": "summarise the plot of Moby Dick", "expected": [], "category": "negative"}
+{"query": "what is my horoscope today", "expected": [], "category": "negative"}
+{"query": "teach me to play the ukulele", "expected": [], "category": "negative"}
+{"query": "what is the tallest mountain in Africa", "expected": [], "category": "negative"}
+{"query": "draft a resignation letter", "expected": [], "category": "negative"}
+{"query": "who painted the Mona Lisa", "expected": [], "category": "negative"}
+{"query": "how do I make sourdough starter", "expected": [], "category": "negative"}
+{"query": "what is the speed of light in a vacuum", "expected": [], "category": "negative"}
+{"query": "name three novels by Ursula K Le Guin", "expected": [], "category": "negative"}
+{"query": "what time zone is Reykjavik in", "expected": [], "category": "negative"}
+{"query": "compose a limerick about YAML", "expected": [], "category": "negative"}
+{"query": "give money back for a charge", "expected": ["billing/issue_refund"], "category": "paraphrase"}
+{"query": "issue a bill to a customer", "expected": ["billing/create_invoice"], "category": "paraphrase"}
+{"query": "stock count for a product code", "expected": ["inventory/get_stock_level"], "category": "paraphrase"}
+{"query": "put a hold on inventory", "expected": ["inventory/reserve_stock"], "category": "paraphrase"}
+{"query": "arrange a courier collection", "expected": ["shipping/create_shipment"], "category": "paraphrase"}
+{"query": "delivery status lookup", "expected": ["shipping/track_shipment"], "category": "paraphrase"}
+{"query": "turn off someone's login", "expected": ["identity/deactivate_user"], "category": "paraphrase"}
+{"query": "read the service logs", "expected": ["observability/query_logs"], "category": "paraphrase"}
+{"query": "bring a service back up", "expected": ["infrastructure/restart_service"], "category": "paraphrase"}
+{"query": "look up a customer record", "expected": ["crm/search_contacts"], "category": "paraphrase"}
+{"query": "they were double charged and want it sorted", "expected": ["billing/issue_refund"], "category": "goal"}
+{"query": "accounts wants this on their statement", "expected": ["billing/create_invoice"], "category": "goal"}
+{"query": "can we promise same day on this", "expected": ["shipping/estimate_delivery"], "category": "goal"}
+{"query": "the courier never picked it up, kill it", "expected": ["shipping/cancel_shipment"], "category": "goal"}
+{"query": "give the intern access", "expected": ["identity/create_user"], "category": "goal"}
+{"query": "is the API getting slower", "expected": ["observability/get_metrics"], "category": "goal"}
+{"query": "we are getting hammered, add servers", "expected": ["infrastructure/scale_deployment"], "category": "goal"}
+{"query": "that customer just signed, log it", "expected": ["crm/create_deal"], "category": "goal"}
+{"query": "this complaint needs a manager", "expected": ["support/escalate_ticket"], "category": "goal"}
+{"query": "how many people did we let down last month", "expected": ["support/list_sla_breaches"], "category": "goal"}
+{"query": "COGS adjustment on hand count", "expected": ["inventory/adjust_stock"], "category": "jargon"}
+{"query": "3PL booking", "expected": ["shipping/create_shipment"], "category": "jargon"}
+{"query": "POD tracking number", "expected": ["shipping/track_shipment"], "category": "jargon"}
+{"query": "IAM principal deactivation", "expected": ["identity/deactivate_user"], "category": "jargon"}
+{"query": "HPA replica bump", "expected": ["infrastructure/scale_deployment"], "category": "jargon"}
+{"query": "our biggest customer is threatening to churn over a billing error", "expected": ["billing/issue_refund", "billing/list_payments"], "category": "indirect"}
+{"query": "the auditor wants evidence of every charge on this account", "expected": ["billing/list_payments"], "category": "indirect"}
+{"query": "we promised next-day and the courier has not scanned it", "expected": ["shipping/track_shipment"], "category": "indirect"}
+{"query": "an ex-employee's token is still calling our API", "expected": ["identity/rotate_api_key", "identity/deactivate_user"], "category": "indirect"}
+{"query": "error rate spiked at exactly the time of the last change", "expected": ["infrastructure/rollback_release"], "category": "indirect"}
+{"query": "one region is fine and the other is timing out", "expected": ["observability/get_metrics", "observability/query_logs"], "category": "indirect"}
+{"query": "the same alert has fired forty times tonight for a known cause", "expected": ["observability/silence_alert"], "category": "indirect"}
+{"query": "marketing keeps mailing the same human twice", "expected": ["crm/merge_contacts"], "category": "indirect"}
+{"query": "we oversold the item and now cannot fulfil", "expected": ["inventory/get_stock_level", "inventory/adjust_stock"], "category": "indirect"}
+{"query": "a customer says nobody has replied to them in a week", "expected": ["support/search_tickets", "support/list_sla_breaches"], "category": "indirect"}
+{"query": "deploy nothing, just show me what is deployed", "expected": ["infrastructure/list_instances"], "category": "distractor"}
+{"query": "do not restart it, tell me why it is failing", "expected": ["observability/query_logs"], "category": "distractor"}
+{"query": "not a refund, just show me what they paid", "expected": ["billing/list_payments"], "category": "distractor"}
+{"query": "not a new ticket, find the existing one", "expected": ["support/search_tickets"], "category": "distractor"}
+{"query": "not a new user, just their permissions", "expected": ["identity/list_permissions"], "category": "distractor"}
+{"query": "do not cancel it, just tell me where it is", "expected": ["shipping/track_shipment"], "category": "distractor"}
+{"query": "do not move stock, just tell me what is low", "expected": ["inventory/list_low_stock"], "category": "distractor"}
+{"query": "not the invoice, the subscription", "expected": ["billing/update_subscription"], "category": "distractor"}
+{"query": "not the alert, the underlying trace", "expected": ["observability/get_trace"], "category": "distractor"}
+{"query": "not a deal, just note the conversation", "expected": ["crm/log_activity"], "category": "distractor"}
+{"query": "check the low stock list and reorder by transferring from the other site", "expected": ["inventory/list_low_stock", "inventory/transfer_stock"], "category": "multi"}
+{"query": "refund them and close the ticket", "expected": ["billing/issue_refund", "support/close_ticket"], "category": "multi"}
+{"query": "track the parcel and if it is lost, refund", "expected": ["shipping/track_shipment", "billing/issue_refund"], "category": "multi"}
+{"query": "rotate the key then confirm what that user can still reach", "expected": ["identity/rotate_api_key", "identity/list_permissions"], "category": "multi"}
+{"query": "deploy it and watch the alerts", "expected": ["infrastructure/deploy_release", "observability/list_alerts"], "category": "multi"}
+{"query": "find the contact and open a ticket for them", "expected": ["crm/search_contacts", "support/create_ticket"], "category": "multi"}
+{"query": "void the old invoice and change their plan", "expected": ["billing/void_invoice", "billing/update_subscription"], "category": "multi"}
+{"query": "get the trace then check the logs around it", "expected": ["observability/get_trace", "observability/query_logs"], "category": "multi"}
+{"query": "reserve the stock and book the courier", "expected": ["inventory/reserve_stock", "shipping/create_shipment"], "category": "multi"}
+{"query": "disable the account and log why on the contact", "expected": ["identity/deactivate_user", "crm/log_activity"], "category": "multi"}
+{"query": "can you check that", "expected": ["observability/list_alerts", "shipping/track_shipment"], "category": "ambiguous"}
+{"query": "sort it out", "expected": ["support/escalate_ticket", "infrastructure/restart_service"], "category": "ambiguous"}
+{"query": "it is wrong", "expected": ["inventory/adjust_stock", "crm/update_contact"], "category": "ambiguous"}
+{"query": "give them access", "expected": ["identity/create_user", "identity/list_permissions"], "category": "ambiguous"}
+{"query": "how much", "expected": ["inventory/get_stock_level", "billing/list_payments"], "category": "ambiguous"}
+{"query": "what is a good name for a golden retriever", "expected": [], "category": "negative"}
+{"query": "how many bones are in the human foot", "expected": [], "category": "negative"}
+{"query": "write a python function to reverse a string", "expected": [], "category": "negative"}
+{"query": "what is the exchange rate today", "expected": [], "category": "negative"}
+{"query": "tell me a joke about databases", "expected": [], "category": "negative"}

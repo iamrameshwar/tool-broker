@@ -1,0 +1,36 @@
+name: Bug report
+description: Something behaves differently than documented
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you expected, and what you got instead.
+    validations: {required: true}
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction
+      description: The smallest script that shows it. Please include the ToolBroker construction.
+      render: python
+    validations: {required: true}
+  - type: textarea
+    id: explain
+    attributes:
+      label: Output of selection.explain()
+      description: >
+        If this is about which tools were selected, paste this. It carries the scores,
+        rule firings, and exclusions, which is usually the whole diagnosis.
+      render: text
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: "`python -c 'import toolbroker; print(toolbroker.__version__)'`"
+    validations: {required: true}
+  - type: input
+    id: environment
+    attributes:
+      label: Python version and OS
+    validations: {required: true}

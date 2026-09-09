@@ -1,0 +1,31 @@
+[project]
+name = "toolbroker-ollama"
+version = "0.1.0.dev0"
+description = "Ollama embeddings for ToolBroker."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+authors = [{ name = "Rameshwar Trivedi" }]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.10",
+    "Typing :: Typed",
+]
+# Deliberately no HTTP dependency: Ollama's embed endpoint is a single JSON
+# POST, and the stdlib covers it. Callers who want pooling or retries inject
+# their own transport.
+dependencies = ["toolbroker>=0.1.0.dev0"]
+
+[project.entry-points."toolbroker.embedders"]
+ollama = "toolbroker_ollama:OllamaEmbedder"
+
+[project.urls]
+Homepage = "https://github.com/iamrameshwar/tool-broker"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/toolbroker_ollama"]

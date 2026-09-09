@@ -1,0 +1,28 @@
+[project]
+name = "toolbroker-claude-agent"
+version = "0.1.0.dev0"
+description = "Claude Agent SDK adapter for ToolBroker."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+authors = [{ name = "Rameshwar Trivedi" }]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.10",
+    "Typing :: Typed",
+]
+dependencies = ["toolbroker>=0.1.0.dev0", "claude-agent-sdk>=0.1"]
+
+[project.entry-points."toolbroker.adapters"]
+claude-agent = "toolbroker_claude_agent:ClaudeAgentAdapter"
+
+[project.urls]
+Homepage = "https://github.com/iamrameshwar/tool-broker"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/toolbroker_claude_agent"]

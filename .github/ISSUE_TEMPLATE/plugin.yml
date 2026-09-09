@@ -1,0 +1,29 @@
+name: Plugin proposal
+description: Propose a new store, embedder, adapter, or source
+labels: [plugin, good first issue]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind
+      options: [Store, Embedder, Adapter, Source, Retriever, Policy rule]
+    validations: {required: true}
+  - type: input
+    id: name
+    attributes:
+      label: What it integrates with
+      placeholder: Qdrant, Voyage AI, CrewAI, OpenAPI...
+    validations: {required: true}
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything unusual about the contract
+      description: >
+        Does it need async? Does it lack a delete operation? Does filtering happen
+        server-side? These are the things that shape the interface.
+  - type: checkboxes
+    id: conformance
+    attributes:
+      label: Conformance
+      options:
+        - label: I plan to run `toolbroker.testing` conformance suites against it

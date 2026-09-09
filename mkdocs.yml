@@ -1,0 +1,38 @@
+site_name: ToolBroker
+site_description: Give your agent the right 5 tools out of 500, on any framework, with rules you control.
+repo_url: https://github.com/iamrameshwar/tool-broker
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - content.action.edit
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle: {icon: material/weather-night, name: Dark mode}
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle: {icon: material/weather-sunny, name: Light mode}
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed: {alternate_style: true}
+  - toc: {permalink: true}
+
+nav:
+  - Home: index.md
+  - Quickstart: quickstart.md
+  - Concepts: concepts.md
+  - Policy: policy.md
+  - MCP proxy: mcp-proxy.md
+  - Extending: extending.md
+  - Benchmarking: benchmarking.md
+  - API stability: stability.md

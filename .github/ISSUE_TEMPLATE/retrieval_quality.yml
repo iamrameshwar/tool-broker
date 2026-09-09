@@ -1,0 +1,43 @@
+name: Retrieval quality
+description: The wrong tool was selected
+labels: [retrieval]
+body:
+  - type: markdown
+    attributes:
+      value: >
+        Retrieval bugs are only fixable when they are reproducible, so the most useful
+        report is a failing benchmark case plus your catalogue.
+  - type: input
+    id: query
+    attributes:
+      label: The query
+    validations: {required: true}
+  - type: input
+    id: expected
+    attributes:
+      label: Tool you expected
+      placeholder: namespace/tool_name
+    validations: {required: true}
+  - type: input
+    id: got
+    attributes:
+      label: Tools you got instead
+    validations: {required: true}
+  - type: textarea
+    id: explain
+    attributes:
+      label: Output of selection.explain()
+      render: text
+    validations: {required: true}
+  - type: input
+    id: embedder
+    attributes:
+      label: Embedder
+      description: HashingEmbedder is lexical only; semantic misses are expected there.
+      placeholder: "fastembed:BAAI/bge-small-en-v1.5"
+    validations: {required: true}
+  - type: textarea
+    id: catalogue
+    attributes:
+      label: Catalogue
+      description: Output of `toolbroker index --out tools.json`, or a trimmed version.

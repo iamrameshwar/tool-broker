@@ -1,0 +1,497 @@
+[
+  {
+    "name": "cancel_shipment",
+    "namespace": "shipping",
+    "description": "Cancel a shipment before pickup.",
+    "tags": [
+      "write",
+      "shipping"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "reset_password",
+    "namespace": "identity",
+    "description": "Send a password reset link.",
+    "tags": [
+      "write",
+      "identity"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "list_schema",
+    "namespace": "service_09",
+    "description": "List a schema.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "get_report",
+    "namespace": "service_00",
+    "description": "Get a report.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_sla_breaches",
+    "namespace": "support",
+    "description": "Tickets past their response deadline.",
+    "tags": [
+      "read",
+      "support"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "transfer_stock",
+    "namespace": "inventory",
+    "description": "Move units between warehouses.",
+    "tags": [
+      "write",
+      "inventory"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "estimate_delivery",
+    "namespace": "shipping",
+    "description": "Predicted arrival date for a route.",
+    "tags": [
+      "read",
+      "shipping"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_report",
+    "namespace": "service_03",
+    "description": "Update a report.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_contact",
+    "namespace": "crm",
+    "description": "Edit fields on a contact.",
+    "tags": [
+      "write",
+      "crm"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "list_report",
+    "namespace": "service_01",
+    "description": "List a report.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "rollback_release",
+    "namespace": "infrastructure",
+    "description": "Revert a service to its previous release.",
+    "tags": [
+      "write",
+      "infrastructure"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "get_schema",
+    "namespace": "service_08",
+    "description": "Get a schema.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "deactivate_user",
+    "namespace": "identity",
+    "description": "Disable a user account.",
+    "tags": [
+      "write",
+      "identity"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "search_contacts",
+    "namespace": "crm",
+    "description": "Find contacts by name, email, or company.",
+    "tags": [
+      "read",
+      "crm"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "adjust_stock",
+    "namespace": "inventory",
+    "description": "Correct the recorded quantity for a SKU.",
+    "tags": [
+      "write",
+      "inventory"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "create_deal",
+    "namespace": "crm",
+    "description": "Open a sales opportunity.",
+    "tags": [
+      "write",
+      "crm"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "escalate_ticket",
+    "namespace": "support",
+    "description": "Raise a ticket's priority and reassign it.",
+    "tags": [
+      "write",
+      "support"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "rotate_api_key",
+    "namespace": "identity",
+    "description": "Issue a new API key and revoke the old one.",
+    "tags": [
+      "write",
+      "identity"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "log_activity",
+    "namespace": "crm",
+    "description": "Record a call, email, or meeting.",
+    "tags": [
+      "write",
+      "crm"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "export_report",
+    "namespace": "service_07",
+    "description": "Export a report.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_subscription",
+    "namespace": "billing",
+    "description": "Change an account's plan or billing interval.",
+    "tags": [
+      "write",
+      "money",
+      "billing"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "list_instances",
+    "namespace": "infrastructure",
+    "description": "Compute instances in a region.",
+    "tags": [
+      "read",
+      "infrastructure"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_permissions",
+    "namespace": "identity",
+    "description": "Roles and permissions granted to a user.",
+    "tags": [
+      "read",
+      "identity"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "create_ticket",
+    "namespace": "support",
+    "description": "Open a support ticket.",
+    "tags": [
+      "write",
+      "support"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "track_shipment",
+    "namespace": "shipping",
+    "description": "Current status and location of a shipment.",
+    "tags": [
+      "read",
+      "shipping"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "get_trace",
+    "namespace": "observability",
+    "description": "Fetch a distributed trace by id.",
+    "tags": [
+      "read",
+      "observability"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "sync_report",
+    "namespace": "service_05",
+    "description": "Sync a report.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "create_invoice",
+    "namespace": "billing",
+    "description": "Raise a new invoice for an account.",
+    "tags": [
+      "write",
+      "money",
+      "billing"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "delete_report",
+    "namespace": "service_04",
+    "description": "Delete a report.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "merge_contacts",
+    "namespace": "crm",
+    "description": "Combine duplicate contact records.",
+    "tags": [
+      "write",
+      "crm"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "list_low_stock",
+    "namespace": "inventory",
+    "description": "SKUs below their reorder point.",
+    "tags": [
+      "read",
+      "inventory"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "validate_report",
+    "namespace": "service_06",
+    "description": "Validate a report.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "search_tickets",
+    "namespace": "support",
+    "description": "Find support tickets.",
+    "tags": [
+      "read",
+      "support"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_alerts",
+    "namespace": "observability",
+    "description": "Alerts currently firing.",
+    "tags": [
+      "read",
+      "observability"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "reserve_stock",
+    "namespace": "inventory",
+    "description": "Hold units against an order.",
+    "tags": [
+      "write",
+      "inventory"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "list_carriers",
+    "namespace": "shipping",
+    "description": "Carriers available for a destination.",
+    "tags": [
+      "read",
+      "shipping"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "issue_refund",
+    "namespace": "billing",
+    "description": "Refund a payment.",
+    "tags": [
+      "write",
+      "money",
+      "billing"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "query_logs",
+    "namespace": "observability",
+    "description": "Search application logs over a time range.",
+    "tags": [
+      "read",
+      "observability"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "create_report",
+    "namespace": "service_02",
+    "description": "Create a report.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "deploy_release",
+    "namespace": "infrastructure",
+    "description": "Roll out a build to an environment.",
+    "tags": [
+      "write",
+      "infrastructure"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "create_shipment",
+    "namespace": "shipping",
+    "description": "Book a shipment with a carrier.",
+    "tags": [
+      "write",
+      "shipping"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "scale_deployment",
+    "namespace": "infrastructure",
+    "description": "Change the replica count.",
+    "tags": [
+      "write",
+      "infrastructure"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "close_ticket",
+    "namespace": "support",
+    "description": "Mark a ticket resolved.",
+    "tags": [
+      "write",
+      "support"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "create_user",
+    "namespace": "identity",
+    "description": "Add a user account.",
+    "tags": [
+      "write",
+      "identity"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "list_payments",
+    "namespace": "billing",
+    "description": "Payments received on an account.",
+    "tags": [
+      "read",
+      "money",
+      "billing"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "get_metrics",
+    "namespace": "observability",
+    "description": "Time series for a service metric.",
+    "tags": [
+      "read",
+      "observability"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "restart_service",
+    "namespace": "infrastructure",
+    "description": "Restart a running service.",
+    "tags": [
+      "write",
+      "infrastructure"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "silence_alert",
+    "namespace": "observability",
+    "description": "Mute an alert for a period.",
+    "tags": [
+      "write",
+      "observability"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "void_invoice",
+    "namespace": "billing",
+    "description": "Void an invoice that has not been paid.",
+    "tags": [
+      "write",
+      "money",
+      "billing"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "get_stock_level",
+    "namespace": "inventory",
+    "description": "Units on hand for a SKU.",
+    "tags": [
+      "read",
+      "inventory"
+    ],
+    "risk": "low"
+  }
+]

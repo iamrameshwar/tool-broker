@@ -1,0 +1,1847 @@
+[
+  {
+    "name": "list_quota",
+    "namespace": "service_14",
+    "description": "List a quota.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "validate_quota",
+    "namespace": "service_04",
+    "description": "Validate a quota.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "create_label",
+    "namespace": "service_12",
+    "description": "Create a label.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "delete_webhook",
+    "namespace": "service_05",
+    "description": "Delete a webhook.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "create_quota",
+    "namespace": "service_00",
+    "description": "Create a quota.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "validate_backup",
+    "namespace": "service_06",
+    "description": "Validate a backup.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "delete_template",
+    "namespace": "service_13",
+    "description": "Delete a template.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "silence_alert",
+    "namespace": "observability",
+    "description": "Mute an alert for a period.",
+    "tags": [
+      "write",
+      "observability"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "create_audit",
+    "namespace": "service_09",
+    "description": "Create a audit.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_connector",
+    "namespace": "service_08",
+    "description": "Update a connector.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "delete_policy",
+    "namespace": "service_07",
+    "description": "Delete a policy.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "create_user",
+    "namespace": "identity",
+    "description": "Add a user account.",
+    "tags": [
+      "write",
+      "identity"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "search_tickets",
+    "namespace": "support",
+    "description": "Find support tickets.",
+    "tags": [
+      "read",
+      "support"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "validate_webhook",
+    "namespace": "service_07",
+    "description": "Validate a webhook.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "export_tag",
+    "namespace": "service_06",
+    "description": "Export a tag.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "reset_password",
+    "namespace": "identity",
+    "description": "Send a password reset link.",
+    "tags": [
+      "write",
+      "identity"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "export_schema",
+    "namespace": "service_00",
+    "description": "Export a schema.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "delete_session",
+    "namespace": "service_12",
+    "description": "Delete a session.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "list_workspace",
+    "namespace": "service_03",
+    "description": "List a workspace.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "create_channel",
+    "namespace": "service_04",
+    "description": "Create a channel.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "export_template",
+    "namespace": "service_01",
+    "description": "Export a template.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "export_dataset",
+    "namespace": "service_11",
+    "description": "Export a dataset.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "create_tag",
+    "namespace": "service_01",
+    "description": "Create a tag.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_pipeline",
+    "namespace": "service_13",
+    "description": "List a pipeline.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "estimate_delivery",
+    "namespace": "shipping",
+    "description": "Predicted arrival date for a route.",
+    "tags": [
+      "read",
+      "shipping"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "export_backup",
+    "namespace": "service_07",
+    "description": "Export a backup.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "create_schema",
+    "namespace": "service_10",
+    "description": "Create a schema.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_label",
+    "namespace": "service_11",
+    "description": "List a label.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "delete_connector",
+    "namespace": "service_09",
+    "description": "Delete a connector.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "update_workspace",
+    "namespace": "service_05",
+    "description": "Update a workspace.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "get_stock_level",
+    "namespace": "inventory",
+    "description": "Units on hand for a SKU.",
+    "tags": [
+      "read",
+      "inventory"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_policy",
+    "namespace": "service_04",
+    "description": "List a policy.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_report",
+    "namespace": "service_03",
+    "description": "Update a report.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "validate_audit",
+    "namespace": "service_13",
+    "description": "Validate a audit.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "create_ticket",
+    "namespace": "support",
+    "description": "Open a support ticket.",
+    "tags": [
+      "write",
+      "support"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "export_webhook",
+    "namespace": "service_08",
+    "description": "Export a webhook.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "sync_snapshot",
+    "namespace": "service_01",
+    "description": "Sync a snapshot.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "get_quota",
+    "namespace": "service_13",
+    "description": "Get a quota.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "delete_tag",
+    "namespace": "service_03",
+    "description": "Delete a tag.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "validate_tag",
+    "namespace": "service_05",
+    "description": "Validate a tag.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "get_policy",
+    "namespace": "service_03",
+    "description": "Get a policy.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_token",
+    "namespace": "service_02",
+    "description": "List a token.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "get_webhook",
+    "namespace": "service_01",
+    "description": "Get a webhook.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "get_label",
+    "namespace": "service_10",
+    "description": "Get a label.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_snapshot",
+    "namespace": "service_12",
+    "description": "List a snapshot.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "get_backup",
+    "namespace": "service_00",
+    "description": "Get a backup.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "validate_region",
+    "namespace": "service_12",
+    "description": "Validate a region.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "deactivate_user",
+    "namespace": "identity",
+    "description": "Disable a user account.",
+    "tags": [
+      "write",
+      "identity"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "create_session",
+    "namespace": "service_10",
+    "description": "Create a session.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "validate_token",
+    "namespace": "service_07",
+    "description": "Validate a token.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "rotate_api_key",
+    "namespace": "identity",
+    "description": "Issue a new API key and revoke the old one.",
+    "tags": [
+      "write",
+      "identity"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "create_token",
+    "namespace": "service_03",
+    "description": "Create a token.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "create_region",
+    "namespace": "service_08",
+    "description": "Create a region.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "validate_pipeline",
+    "namespace": "service_03",
+    "description": "Validate a pipeline.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_audit",
+    "namespace": "service_08",
+    "description": "List a audit.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "sync_session",
+    "namespace": "service_13",
+    "description": "Sync a session.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "merge_contacts",
+    "namespace": "crm",
+    "description": "Combine duplicate contact records.",
+    "tags": [
+      "write",
+      "crm"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "create_template",
+    "namespace": "service_11",
+    "description": "Create a template.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "delete_pipeline",
+    "namespace": "service_01",
+    "description": "Delete a pipeline.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "list_low_stock",
+    "namespace": "inventory",
+    "description": "SKUs below their reorder point.",
+    "tags": [
+      "read",
+      "inventory"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "sync_channel",
+    "namespace": "service_07",
+    "description": "Sync a channel.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "create_report",
+    "namespace": "service_02",
+    "description": "Create a report.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "sync_rule",
+    "namespace": "service_14",
+    "description": "Sync a rule.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "delete_report",
+    "namespace": "service_04",
+    "description": "Delete a report.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "get_workspace",
+    "namespace": "service_02",
+    "description": "Get a workspace.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_session",
+    "namespace": "service_09",
+    "description": "List a session.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_subscription",
+    "namespace": "billing",
+    "description": "Change an account's plan or billing interval.",
+    "tags": [
+      "write",
+      "money",
+      "billing"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "create_dataset",
+    "namespace": "service_06",
+    "description": "Create a dataset.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "cancel_shipment",
+    "namespace": "shipping",
+    "description": "Cancel a shipment before pickup.",
+    "tags": [
+      "write",
+      "shipping"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "adjust_stock",
+    "namespace": "inventory",
+    "description": "Correct the recorded quantity for a SKU.",
+    "tags": [
+      "write",
+      "inventory"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "restart_service",
+    "namespace": "infrastructure",
+    "description": "Restart a running service.",
+    "tags": [
+      "write",
+      "infrastructure"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "sync_schema",
+    "namespace": "service_13",
+    "description": "Sync a schema.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_tag",
+    "namespace": "service_00",
+    "description": "List a tag.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "export_token",
+    "namespace": "service_08",
+    "description": "Export a token.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "delete_quota",
+    "namespace": "service_02",
+    "description": "Delete a quota.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "sync_workspace",
+    "namespace": "service_07",
+    "description": "Sync a workspace.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "delete_audit",
+    "namespace": "service_11",
+    "description": "Delete a audit.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "get_dataset",
+    "namespace": "service_04",
+    "description": "Get a dataset.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "sync_report",
+    "namespace": "service_05",
+    "description": "Sync a report.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "search_contacts",
+    "namespace": "crm",
+    "description": "Find contacts by name, email, or company.",
+    "tags": [
+      "read",
+      "crm"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_snapshot",
+    "namespace": "service_14",
+    "description": "Update a snapshot.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "validate_workspace",
+    "namespace": "service_08",
+    "description": "Validate a workspace.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "export_label",
+    "namespace": "service_02",
+    "description": "Export a label.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_schema",
+    "namespace": "service_09",
+    "description": "List a schema.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "reserve_stock",
+    "namespace": "inventory",
+    "description": "Hold units against an order.",
+    "tags": [
+      "write",
+      "inventory"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "delete_schema",
+    "namespace": "service_12",
+    "description": "Delete a schema.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "sync_policy",
+    "namespace": "service_08",
+    "description": "Sync a policy.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_tag",
+    "namespace": "service_02",
+    "description": "Update a tag.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "get_channel",
+    "namespace": "service_02",
+    "description": "Get a channel.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "create_policy",
+    "namespace": "service_05",
+    "description": "Create a policy.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "deploy_release",
+    "namespace": "infrastructure",
+    "description": "Roll out a build to an environment.",
+    "tags": [
+      "write",
+      "infrastructure"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "get_snapshot",
+    "namespace": "service_11",
+    "description": "Get a snapshot.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_region",
+    "namespace": "service_09",
+    "description": "Update a region.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "sync_token",
+    "namespace": "service_06",
+    "description": "Sync a token.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "sync_tag",
+    "namespace": "service_04",
+    "description": "Sync a tag.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "export_channel",
+    "namespace": "service_09",
+    "description": "Export a channel.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_region",
+    "namespace": "service_07",
+    "description": "List a region.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "get_connector",
+    "namespace": "service_05",
+    "description": "Get a connector.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "sync_audit",
+    "namespace": "service_12",
+    "description": "Sync a audit.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "sync_backup",
+    "namespace": "service_05",
+    "description": "Sync a backup.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "escalate_ticket",
+    "namespace": "support",
+    "description": "Raise a ticket's priority and reassign it.",
+    "tags": [
+      "write",
+      "support"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "sync_dataset",
+    "namespace": "service_09",
+    "description": "Sync a dataset.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_backup",
+    "namespace": "service_01",
+    "description": "List a backup.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "get_audit",
+    "namespace": "service_07",
+    "description": "Get a audit.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_report",
+    "namespace": "service_01",
+    "description": "List a report.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "get_pipeline",
+    "namespace": "service_12",
+    "description": "Get a pipeline.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_contact",
+    "namespace": "crm",
+    "description": "Edit fields on a contact.",
+    "tags": [
+      "write",
+      "crm"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "track_shipment",
+    "namespace": "shipping",
+    "description": "Current status and location of a shipment.",
+    "tags": [
+      "read",
+      "shipping"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "export_quota",
+    "namespace": "service_05",
+    "description": "Export a quota.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "create_connector",
+    "namespace": "service_07",
+    "description": "Create a connector.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "transfer_stock",
+    "namespace": "inventory",
+    "description": "Move units between warehouses.",
+    "tags": [
+      "write",
+      "inventory"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "validate_report",
+    "namespace": "service_06",
+    "description": "Validate a report.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_webhook",
+    "namespace": "service_04",
+    "description": "Update a webhook.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "get_report",
+    "namespace": "service_00",
+    "description": "Get a report.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_dataset",
+    "namespace": "service_07",
+    "description": "Update a dataset.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_dataset",
+    "namespace": "service_05",
+    "description": "List a dataset.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "sync_webhook",
+    "namespace": "service_06",
+    "description": "Sync a webhook.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "validate_label",
+    "namespace": "service_01",
+    "description": "Validate a label.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_connector",
+    "namespace": "service_06",
+    "description": "List a connector.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "create_rule",
+    "namespace": "service_11",
+    "description": "Create a rule.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "sync_template",
+    "namespace": "service_14",
+    "description": "Sync a template.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "create_deal",
+    "namespace": "crm",
+    "description": "Open a sales opportunity.",
+    "tags": [
+      "write",
+      "crm"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "create_workspace",
+    "namespace": "service_04",
+    "description": "Create a workspace.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "validate_session",
+    "namespace": "service_14",
+    "description": "Validate a session.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "create_pipeline",
+    "namespace": "service_14",
+    "description": "Create a pipeline.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "get_schema",
+    "namespace": "service_08",
+    "description": "Get a schema.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "create_webhook",
+    "namespace": "service_03",
+    "description": "Create a webhook.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "rollback_release",
+    "namespace": "infrastructure",
+    "description": "Revert a service to its previous release.",
+    "tags": [
+      "write",
+      "infrastructure"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "get_region",
+    "namespace": "service_06",
+    "description": "Get a region.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "delete_token",
+    "namespace": "service_05",
+    "description": "Delete a token.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "log_activity",
+    "namespace": "crm",
+    "description": "Record a call, email, or meeting.",
+    "tags": [
+      "write",
+      "crm"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "delete_label",
+    "namespace": "service_14",
+    "description": "Delete a label.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "validate_connector",
+    "namespace": "service_11",
+    "description": "Validate a connector.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "export_workspace",
+    "namespace": "service_09",
+    "description": "Export a workspace.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_sla_breaches",
+    "namespace": "support",
+    "description": "Tickets past their response deadline.",
+    "tags": [
+      "read",
+      "support"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "create_backup",
+    "namespace": "service_02",
+    "description": "Create a backup.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "validate_policy",
+    "namespace": "service_09",
+    "description": "Validate a policy.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_audit",
+    "namespace": "service_10",
+    "description": "Update a audit.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "create_invoice",
+    "namespace": "billing",
+    "description": "Raise a new invoice for an account.",
+    "tags": [
+      "write",
+      "money",
+      "billing"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "create_shipment",
+    "namespace": "shipping",
+    "description": "Book a shipment with a carrier.",
+    "tags": [
+      "write",
+      "shipping"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "validate_schema",
+    "namespace": "service_14",
+    "description": "Validate a schema.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "delete_backup",
+    "namespace": "service_04",
+    "description": "Delete a backup.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "get_template",
+    "namespace": "service_09",
+    "description": "Get a template.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "scale_deployment",
+    "namespace": "infrastructure",
+    "description": "Change the replica count.",
+    "tags": [
+      "write",
+      "infrastructure"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "get_session",
+    "namespace": "service_08",
+    "description": "Get a session.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "sync_quota",
+    "namespace": "service_03",
+    "description": "Sync a quota.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_template",
+    "namespace": "service_10",
+    "description": "List a template.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "void_invoice",
+    "namespace": "billing",
+    "description": "Void an invoice that has not been paid.",
+    "tags": [
+      "write",
+      "money",
+      "billing"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "close_ticket",
+    "namespace": "support",
+    "description": "Mark a ticket resolved.",
+    "tags": [
+      "write",
+      "support"
+    ],
+    "risk": "medium"
+  },
+  {
+    "name": "export_audit",
+    "namespace": "service_14",
+    "description": "Export a audit.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "validate_template",
+    "namespace": "service_00",
+    "description": "Validate a template.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_carriers",
+    "namespace": "shipping",
+    "description": "Carriers available for a destination.",
+    "tags": [
+      "read",
+      "shipping"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_policy",
+    "namespace": "service_06",
+    "description": "Update a policy.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_alerts",
+    "namespace": "observability",
+    "description": "Alerts currently firing.",
+    "tags": [
+      "read",
+      "observability"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_rule",
+    "namespace": "service_12",
+    "description": "Update a rule.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_quota",
+    "namespace": "service_01",
+    "description": "Update a quota.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_channel",
+    "namespace": "service_05",
+    "description": "Update a channel.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "export_region",
+    "namespace": "service_13",
+    "description": "Export a region.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_permissions",
+    "namespace": "identity",
+    "description": "Roles and permissions granted to a user.",
+    "tags": [
+      "read",
+      "identity"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_backup",
+    "namespace": "service_03",
+    "description": "Update a backup.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "sync_pipeline",
+    "namespace": "service_02",
+    "description": "Sync a pipeline.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "validate_channel",
+    "namespace": "service_08",
+    "description": "Validate a channel.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "get_trace",
+    "namespace": "observability",
+    "description": "Fetch a distributed trace by id.",
+    "tags": [
+      "read",
+      "observability"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "export_connector",
+    "namespace": "service_12",
+    "description": "Export a connector.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "validate_snapshot",
+    "namespace": "service_02",
+    "description": "Validate a snapshot.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_channel",
+    "namespace": "service_03",
+    "description": "List a channel.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "export_report",
+    "namespace": "service_07",
+    "description": "Export a report.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "sync_connector",
+    "namespace": "service_10",
+    "description": "Sync a connector.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "delete_snapshot",
+    "namespace": "service_00",
+    "description": "Delete a snapshot.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "validate_dataset",
+    "namespace": "service_10",
+    "description": "Validate a dataset.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_schema",
+    "namespace": "service_11",
+    "description": "Update a schema.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "sync_label",
+    "namespace": "service_00",
+    "description": "Sync a label.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "get_tag",
+    "namespace": "service_14",
+    "description": "Get a tag.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "export_session",
+    "namespace": "service_00",
+    "description": "Export a session.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "list_rule",
+    "namespace": "service_10",
+    "description": "List a rule.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "delete_rule",
+    "namespace": "service_13",
+    "description": "Delete a rule.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "get_token",
+    "namespace": "service_01",
+    "description": "Get a token.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "get_rule",
+    "namespace": "service_09",
+    "description": "Get a rule.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_template",
+    "namespace": "service_12",
+    "description": "Update a template.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "get_metrics",
+    "namespace": "observability",
+    "description": "Time series for a service metric.",
+    "tags": [
+      "read",
+      "observability"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "export_pipeline",
+    "namespace": "service_04",
+    "description": "Export a pipeline.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "export_snapshot",
+    "namespace": "service_03",
+    "description": "Export a snapshot.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "export_rule",
+    "namespace": "service_01",
+    "description": "Export a rule.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "delete_channel",
+    "namespace": "service_06",
+    "description": "Delete a channel.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "export_policy",
+    "namespace": "service_10",
+    "description": "Export a policy.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "issue_refund",
+    "namespace": "billing",
+    "description": "Refund a payment.",
+    "tags": [
+      "write",
+      "money",
+      "billing"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "list_instances",
+    "namespace": "infrastructure",
+    "description": "Compute instances in a region.",
+    "tags": [
+      "read",
+      "infrastructure"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_token",
+    "namespace": "service_04",
+    "description": "Update a token.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "validate_rule",
+    "namespace": "service_00",
+    "description": "Validate a rule.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "query_logs",
+    "namespace": "observability",
+    "description": "Search application logs over a time range.",
+    "tags": [
+      "read",
+      "observability"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "delete_dataset",
+    "namespace": "service_08",
+    "description": "Delete a dataset.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "update_session",
+    "namespace": "service_11",
+    "description": "Update a session.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "delete_region",
+    "namespace": "service_10",
+    "description": "Delete a region.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "list_payments",
+    "namespace": "billing",
+    "description": "Payments received on an account.",
+    "tags": [
+      "read",
+      "money",
+      "billing"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "sync_region",
+    "namespace": "service_11",
+    "description": "Sync a region.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "create_snapshot",
+    "namespace": "service_13",
+    "description": "Create a snapshot.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "delete_workspace",
+    "namespace": "service_06",
+    "description": "Delete a workspace.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "high"
+  },
+  {
+    "name": "list_webhook",
+    "namespace": "service_02",
+    "description": "List a webhook.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_pipeline",
+    "namespace": "service_00",
+    "description": "Update a pipeline.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  },
+  {
+    "name": "update_label",
+    "namespace": "service_13",
+    "description": "Update a label.",
+    "tags": [
+      "filler"
+    ],
+    "risk": "low"
+  }
+]

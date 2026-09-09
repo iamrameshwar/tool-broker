@@ -1,0 +1,887 @@
+{
+  "api": {
+    "Adapter": {
+      "bases": [
+        "Protocol"
+      ],
+      "kind": "class",
+      "members": {
+        "id": "property",
+        "render": "(self, tools: 'Sequence[Tool]') -> 'Any'"
+      }
+    },
+    "AdapterError": {
+      "bases": [
+        "ToolBrokerError"
+      ],
+      "kind": "class",
+      "members": {}
+    },
+    "AgentPolicy": {
+      "bases": [],
+      "kind": "class",
+      "members": {
+        "agents": "property",
+        "evaluate": "(self, hits: 'Sequence[Hit]', *, agent: 'str | None' = None, scopes: 'frozenset[str]' = frozenset(), query: 'str' = '', tenant: 'str | None' = None) -> 'PolicyResult'",
+        "for_agent": "(self, agent: 'str | None') -> 'PolicyEngine'",
+        "register": "(self, agent: 'str', policy: 'PolicyEngine') -> 'None'",
+        "strict": "property"
+      }
+    },
+    "AgentReach": {
+      "bases": [
+        "BaseModel"
+      ],
+      "kind": "class",
+      "members": {
+        "field:agent": "field",
+        "field:by_risk": "field",
+        "field:denied": "field",
+        "field:max_tools": "field",
+        "field:reachable": "field",
+        "field:undecidable": "field",
+        "total": "property"
+      }
+    },
+    "AliasLearner": {
+      "bases": [],
+      "kind": "class",
+      "members": {
+        "aliases_for": "(self, tool_id: 'str') -> 'tuple[str, ...]'",
+        "enrich": "(self, text: 'str', tool: 'Tool | None' = None, **_: 'Any') -> 'str'",
+        "forget": "(self, tool_id: 'str', query: 'str | None' = None) -> 'bool'",
+        "known_tools": "(self) -> 'tuple[str, ...]'",
+        "load": "classmethod",
+        "record": "(self, query: 'str', tool_id: 'str', weight: 'float' = 1.0) -> 'None'",
+        "record_many": "(self, query: 'str', tool_ids: 'Iterable[str]') -> 'None'",
+        "save": "(self, path: 'str | Path') -> 'Path'",
+        "snapshot": "(self) -> 'dict[str, dict[str, float]]'",
+        "weight_of": "(self, tool_id: 'str', query: 'str') -> 'float'"
+      }
+    },
+    "AllowTools": {
+      "bases": [
+        "Rule"
+      ],
+      "kind": "class",
+      "members": {
+        "case_sensitive": "bool",
+        "check": "(self, tool: 'Tool', context: 'RuleContext') -> 'Verdict | None'"
+      }
+    },
+    "CalibrationReport": {
+      "bases": [
+        "BaseModel"
+      ],
+      "kind": "class",
+      "members": {
+        "field:catalogue_size": "field",
+        "field:embedder": "field",
+        "field:k": "field",
+        "field:noise_ceiling": "field",
+        "field:noise_scores": "field",
+        "field:sample_floor": "field",
+        "field:sample_scores": "field",
+        "field:sample_tail_scores": "field",
+        "field:suggestions": "field",
+        "overlaps": "property",
+        "recommended": "(self, *, percentile: 'int' = 90) -> 'float'",
+        "summary": "(self) -> 'str'"
+      }
+    },
+    "CatalogueDiagnosis": {
+      "bases": [
+        "BaseModel"
+      ],
+      "kind": "class",
+      "members": {
+        "field:catalogue_size": "field",
+        "field:closest_pairs": "field",
+        "field:embedder": "field",
+        "field:findings": "field",
+        "field:k": "field",
+        "field:margin": "field",
+        "field:sample_count": "field",
+        "field:unreached": "field",
+        "summary": "(self) -> 'str'",
+        "unhealthy": "property",
+        "with_issue": "(self, issue: 'str') -> 'tuple[ToolFinding, ...]'"
+      }
+    },
+    "ConfigurationError": {
+      "bases": [
+        "ToolBrokerError"
+      ],
+      "kind": "class",
+      "members": {}
+    },
+    "Conversation": {
+      "bases": [],
+      "kind": "class",
+      "members": {
+        "add": "(self, role: 'str', text: 'str') -> 'Conversation'",
+        "add_assistant": "(self, text: 'str') -> 'Conversation'",
+        "add_user": "(self, text: 'str') -> 'Conversation'",
+        "include_assistant": "bool",
+        "latest": "property",
+        "max_turns": "int",
+        "query": "(self) -> 'str'",
+        "weight": "int"
+      }
+    },
+    "CostTier": {
+      "bases": [
+        "str",
+        "Enum"
+      ],
+      "kind": "class",
+      "members": {
+        "FREE": "CostTier",
+        "HIGH": "CostTier",
+        "LOW": "CostTier",
+        "MEDIUM": "CostTier"
+      }
+    },
+    "DROP": {
+      "kind": "_Drop"
+    },
+    "Decision": {
+      "bases": [
+        "str",
+        "Enum"
+      ],
+      "kind": "class",
+      "members": {
+        "ALLOW": "Decision",
+        "DENY": "Decision"
+      }
+    },
+    "DenyTags": {
+      "bases": [
+        "Rule"
+      ],
+      "kind": "class",
+      "members": {
+        "check": "(self, tool: 'Tool', context: 'RuleContext') -> 'Verdict | None'",
+        "tags": "frozenset"
+      }
+    },
+    "DenyTools": {
+      "bases": [
+        "Rule"
+      ],
+      "kind": "class",
+      "members": {
+        "case_sensitive": "bool",
+        "check": "(self, tool: 'Tool', context: 'RuleContext') -> 'Verdict | None'",
+        "reason": "str"
+      }
+    },
+    "DriftGuard": {
+      "bases": [],
+      "kind": "class",
+      "members": {
+        "accept": "(self, tool: 'Tool') -> 'None'",
+        "approve": "(self, tool: 'Tool') -> 'str'",
+        "approve_digest": "(self, tool_id: 'str', digest: 'str') -> 'None'",
+        "approved": "property",
+        "forget": "(self, tool_id: 'str') -> 'bool'",
+        "holds_new_tools": "(self) -> 'bool'",
+        "inspect": "(self, previous: 'Tool', incoming: 'Tool') -> 'list[ToolChange]'",
+        "is_approved": "(self, tool: 'Tool') -> 'bool'",
+        "observe_new": "(self, tool: 'Tool') -> 'None'",
+        "quarantining": "property",
+        "save": "(self, path: 'str | Path | None' = None) -> 'Path'",
+        "should_hold": "(self, incoming: 'Tool') -> 'bool'"
+      }
+    },
+    "Embedder": {
+      "bases": [
+        "Protocol"
+      ],
+      "kind": "class",
+      "members": {
+        "dim": "property",
+        "embed": "(self, texts: 'Sequence[str]') -> 'list[list[float]]'",
+        "embed_query": "(self, text: 'str') -> 'list[float]'",
+        "id": "property"
+      }
+    },
+    "EmbeddingError": {
+      "bases": [
+        "ToolBrokerError"
+      ],
+      "kind": "class",
+      "members": {}
+    },
+    "EnrichmentConfig": {
+      "bases": [
+        "BaseModel"
+      ],
+      "kind": "class",
+      "members": {
+        "field:description_weight": "field",
+        "field:include_description": "field",
+        "field:include_examples": "field",
+        "field:include_name": "field",
+        "field:include_namespace": "field",
+        "field:include_parameters": "field",
+        "field:include_tags": "field",
+        "field:max_description_chars": "field",
+        "field:max_parameters": "field",
+        "field:name_weight": "field"
+      }
+    },
+    "Event": {
+      "bases": [
+        "str",
+        "Enum"
+      ],
+      "kind": "class",
+      "members": {
+        "AFTER_DISCOVERY": "Event",
+        "AFTER_INDEXING": "Event",
+        "AFTER_POLICY": "Event",
+        "AFTER_RETRIEVAL": "Event",
+        "AFTER_SELECTION": "Event",
+        "BEFORE_DISCOVERY": "Event",
+        "BEFORE_POLICY": "Event",
+        "BEFORE_RETRIEVAL": "Event",
+        "TRANSFORM_HITS": "Event",
+        "TRANSFORM_INDEX_TEXT": "Event",
+        "TRANSFORM_QUERY": "Event",
+        "TRANSFORM_TOOL": "Event"
+      }
+    },
+    "Exclusion": {
+      "bases": [
+        "_Frozen"
+      ],
+      "kind": "class",
+      "members": {
+        "field:reason": "field",
+        "field:stage": "field",
+        "field:tool_id": "field"
+      }
+    },
+    "Filters": {
+      "bases": [
+        "_Frozen"
+      ],
+      "kind": "class",
+      "members": {
+        "field:exclude_tags": "field",
+        "field:exclude_tool_ids": "field",
+        "field:max_risk": "field",
+        "field:namespaces": "field",
+        "field:tags_all": "field",
+        "field:tags_any": "field",
+        "field:tool_ids": "field",
+        "is_empty": "(self) -> 'bool'",
+        "matches": "(self, tool: 'Tool') -> 'bool'"
+      }
+    },
+    "Hit": {
+      "bases": [
+        "_Frozen"
+      ],
+      "kind": "class",
+      "members": {
+        "field:components": "field",
+        "field:score": "field",
+        "field:tool": "field",
+        "id": "property"
+      }
+    },
+    "HookManager": {
+      "bases": [],
+      "kind": "class",
+      "members": {
+        "emit": "(self, event: 'Event', **kwargs: 'Any') -> 'None'",
+        "handlers": "(self, event: 'Event') -> 'Sequence[Handler]'",
+        "on": "(self, event: 'Event') -> 'Callable[[Handler], Handler]'",
+        "register": "(self, event: 'Event', handler: 'Handler') -> 'None'",
+        "transform": "(self, event: 'Event', value: 'T', **kwargs: 'Any') -> 'T'",
+        "transform_or_drop": "(self, event: 'Event', value: 'T', **kwargs: 'Any') -> 'T | _Drop'",
+        "unregister": "(self, event: 'Event', handler: 'Handler') -> 'bool'"
+      }
+    },
+    "IndexReport": {
+      "bases": [],
+      "kind": "class",
+      "members": {
+        "duplicates": "member_descriptor",
+        "indexed": "member_descriptor",
+        "removed": "member_descriptor",
+        "skipped": "member_descriptor",
+        "total": "property"
+      }
+    },
+    "MaxCost": {
+      "bases": [
+        "Rule"
+      ],
+      "kind": "class",
+      "members": {
+        "ceiling": "CostTier",
+        "check": "(self, tool: 'Tool', context: 'RuleContext') -> 'Verdict | None'"
+      }
+    },
+    "MaxRisk": {
+      "bases": [
+        "Rule"
+      ],
+      "kind": "class",
+      "members": {
+        "ceiling": "RiskTier",
+        "check": "(self, tool: 'Tool', context: 'RuleContext') -> 'Verdict | None'"
+      }
+    },
+    "MaxTools": {
+      "bases": [
+        "SelectionRule"
+      ],
+      "kind": "class",
+      "members": {
+        "apply": "(self, hits: 'Sequence[Hit]', context: 'RuleContext') -> 'tuple[list[Hit], list[Exclusion], list[RuleFiring]]'",
+        "limit": "int"
+      }
+    },
+    "MinScore": {
+      "bases": [
+        "SelectionRule"
+      ],
+      "kind": "class",
+      "members": {
+        "apply": "(self, hits: 'Sequence[Hit]', context: 'RuleContext') -> 'tuple[list[Hit], list[Exclusion], list[RuleFiring]]'",
+        "threshold": "float"
+      }
+    },
+    "NotIndexedError": {
+      "bases": [
+        "ToolBrokerError"
+      ],
+      "kind": "class",
+      "members": {}
+    },
+    "PeriodicRefresher": {
+      "bases": [],
+      "kind": "class",
+      "members": {
+        "refresh_once": "(self) -> 'RefreshReport | None'",
+        "running": "property",
+        "start": "(self) -> 'PeriodicRefresher'",
+        "stop": "(self, *, timeout: 'float | None' = 5.0) -> 'None'"
+      }
+    },
+    "PluginError": {
+      "bases": [
+        "ConfigurationError"
+      ],
+      "kind": "class",
+      "members": {}
+    },
+    "Policy": {
+      "bases": [
+        "Protocol"
+      ],
+      "kind": "class",
+      "members": {
+        "evaluate": "(self, hits: 'Sequence[Hit]', *, agent: 'str | None' = None, scopes: 'frozenset[str]' = frozenset(), query: 'str' = '', tenant: 'str | None' = None) -> 'PolicyResult'"
+      }
+    },
+    "PolicyDiff": {
+      "bases": [
+        "BaseModel"
+      ],
+      "kind": "class",
+      "members": {
+        "changed": "property",
+        "field:catalogue_size": "field",
+        "field:deltas": "field",
+        "field:undecidable": "field",
+        "grants_high_risk": "property",
+        "summary": "(self) -> 'str'"
+      }
+    },
+    "PolicyEngine": {
+      "bases": [],
+      "kind": "class",
+      "members": {
+        "combining": "property",
+        "default": "property",
+        "dry_run": "property",
+        "evaluate": "(self, hits: 'Sequence[Hit]', *, agent: 'str | None' = None, scopes: 'frozenset[str]' = frozenset(), query: 'str' = '', tenant: 'str | None' = None) -> 'PolicyResult'",
+        "rules": "property",
+        "selection_rules": "property",
+        "with_rules": "(self, rules: 'Sequence[Rule]' = (), selection_rules: 'Sequence[SelectionRule]' = ()) -> 'PolicyEngine'"
+      }
+    },
+    "PolicyError": {
+      "bases": [
+        "ToolBrokerError"
+      ],
+      "kind": "class",
+      "members": {}
+    },
+    "PolicyViolationError": {
+      "bases": [
+        "PolicyError"
+      ],
+      "kind": "class",
+      "members": {}
+    },
+    "PredicateRule": {
+      "bases": [
+        "Rule"
+      ],
+      "kind": "class",
+      "members": {
+        "check": "(self, tool: 'Tool', context: 'RuleContext') -> 'Verdict | None'",
+        "on_true": "Decision",
+        "reason": "str"
+      }
+    },
+    "RefreshReport": {
+      "bases": [],
+      "kind": "class",
+      "members": {
+        "added": "member_descriptor",
+        "changed": "property",
+        "changes": "member_descriptor",
+        "embedded": "member_descriptor",
+        "failed_sources": "member_descriptor",
+        "quarantined": "member_descriptor",
+        "removed": "member_descriptor",
+        "summary": "(self) -> 'str'",
+        "total": "property",
+        "unchanged": "member_descriptor",
+        "updated": "member_descriptor"
+      }
+    },
+    "RequireScopes": {
+      "bases": [
+        "Rule"
+      ],
+      "kind": "class",
+      "members": {
+        "check": "(self, tool: 'Tool', context: 'RuleContext') -> 'Verdict | None'"
+      }
+    },
+    "RequireTags": {
+      "bases": [
+        "Rule"
+      ],
+      "kind": "class",
+      "members": {
+        "check": "(self, tool: 'Tool', context: 'RuleContext') -> 'Verdict | None'",
+        "tags": "frozenset"
+      }
+    },
+    "Reranker": {
+      "bases": [
+        "Protocol"
+      ],
+      "kind": "class",
+      "members": {
+        "rerank": "(self, query: 'str', hits: 'Sequence[Hit]', k: 'int') -> 'list[Hit]'"
+      }
+    },
+    "ResilientRetriever": {
+      "bases": [],
+      "kind": "class",
+      "members": {
+        "degraded": "property",
+        "fallback": "property",
+        "primary": "property",
+        "retrieve": "(self, query: 'str', k: 'int', filters: 'Filters | None' = None) -> 'list[Hit]'"
+      }
+    },
+    "RetrievalError": {
+      "bases": [
+        "ToolBrokerError"
+      ],
+      "kind": "class",
+      "members": {}
+    },
+    "Retriever": {
+      "bases": [
+        "Protocol"
+      ],
+      "kind": "class",
+      "members": {
+        "retrieve": "(self, query: 'str', k: 'int', filters: 'Filters | None' = None) -> 'list[Hit]'"
+      }
+    },
+    "RiskClassifier": {
+      "kind": "_CallableGenericAlias"
+    },
+    "RiskTier": {
+      "bases": [
+        "str",
+        "Enum"
+      ],
+      "kind": "class",
+      "members": {
+        "CRITICAL": "RiskTier",
+        "HIGH": "RiskTier",
+        "LOW": "RiskTier",
+        "MEDIUM": "RiskTier",
+        "level": "property"
+      }
+    },
+    "RuleFiring": {
+      "bases": [
+        "_Frozen"
+      ],
+      "kind": "class",
+      "members": {
+        "field:decision": "field",
+        "field:reason": "field",
+        "field:rule": "field",
+        "field:tool_id": "field"
+      }
+    },
+    "SavingsReport": {
+      "bases": [
+        "BaseModel"
+      ],
+      "kind": "class",
+      "members": {
+        "cost_saved": "property",
+        "field:measured": "field",
+        "field:price_per_million": "field",
+        "field:selections": "field",
+        "field:tokens_if_full": "field",
+        "field:tokens_sent": "field",
+        "field:tools_in_catalogue": "field",
+        "field:tools_sent": "field",
+        "ratio": "property",
+        "summary": "(self) -> 'str'",
+        "tokens_saved": "property"
+      }
+    },
+    "SavingsTally": {
+      "bases": [],
+      "kind": "class",
+      "members": {
+        "record": "(self, selection: 'Selection', catalogue: 'Sequence[Tool]', *, actual_tokens: 'int | None' = None) -> 'None'",
+        "report": "(self) -> 'SavingsReport'",
+        "reset": "(self) -> 'None'",
+        "summary": "(self) -> 'str'"
+      }
+    },
+    "Selection": {
+      "bases": [
+        "_Frozen"
+      ],
+      "kind": "class",
+      "members": {
+        "explain": "(self) -> 'str'",
+        "field:agent": "field",
+        "field:considered": "field",
+        "field:dry_run": "field",
+        "field:exclusions": "field",
+        "field:firings": "field",
+        "field:hits": "field",
+        "field:query": "field",
+        "field:requested_k": "field",
+        "field:timings_ms": "field",
+        "tool_ids": "property",
+        "tools": "property"
+      }
+    },
+    "Source": {
+      "bases": [
+        "Protocol"
+      ],
+      "kind": "class",
+      "members": {
+        "discover": "(self) -> 'Iterable[Tool]'",
+        "id": "property"
+      }
+    },
+    "SourceError": {
+      "bases": [
+        "ToolBrokerError"
+      ],
+      "kind": "class",
+      "members": {}
+    },
+    "Stage": {
+      "bases": [
+        "str",
+        "Enum"
+      ],
+      "kind": "class",
+      "members": {
+        "ADAPTATION": "Stage",
+        "DISCOVERY": "Stage",
+        "FILTERING": "Stage",
+        "INDEXING": "Stage",
+        "POLICY": "Stage",
+        "RERANKING": "Stage",
+        "RETRIEVAL": "Stage"
+      }
+    },
+    "Store": {
+      "bases": [
+        "Protocol"
+      ],
+      "kind": "class",
+      "members": {
+        "all_records": "(self) -> 'Sequence[ToolRecord]'",
+        "clear": "(self) -> 'None'",
+        "delete": "(self, tool_ids: 'Sequence[str]') -> 'int'",
+        "dim": "property",
+        "get": "(self, tool_id: 'str') -> 'ToolRecord | None'",
+        "search": "(self, vector: 'Vector', k: 'int', filters: 'Filters | None' = None) -> 'list[Hit]'",
+        "upsert": "(self, records: 'Sequence[ToolRecord]') -> 'None'"
+      }
+    },
+    "StoreError": {
+      "bases": [
+        "ToolBrokerError"
+      ],
+      "kind": "class",
+      "members": {}
+    },
+    "TenantIsolation": {
+      "bases": [
+        "Rule"
+      ],
+      "kind": "class",
+      "members": {
+        "check": "(self, tool: 'Tool', context: 'RuleContext') -> 'Verdict | None'",
+        "mandatory": "bool",
+        "shared_tools": "bool",
+        "tenant_key": "str"
+      }
+    },
+    "Tool": {
+      "bases": [
+        "_Frozen"
+      ],
+      "kind": "class",
+      "members": {
+        "field:cost": "field",
+        "field:description": "field",
+        "field:examples": "field",
+        "field:input_schema": "field",
+        "field:metadata": "field",
+        "field:name": "field",
+        "field:namespace": "field",
+        "field:required_scopes": "field",
+        "field:risk": "field",
+        "field:source_id": "field",
+        "field:tags": "field",
+        "id": "property",
+        "with_metadata": "(self, **updates: 'Any') -> 'Tool'"
+      }
+    },
+    "ToolBroker": {
+      "bases": [],
+      "kind": "class",
+      "members": {
+        "add_functions": "(self, functions: 'Sequence[Callable[..., Any]]', *, namespace: 'str' = 'python', source_id: 'str' = 'python', risk_classifier: 'RiskClassifier | None' = None) -> 'ToolBroker'",
+        "add_mcp_server": "(self, name: 'str', *, command: 'str | None' = None, args: 'Sequence[str]' = (), url: 'str | None' = None, **kwargs: 'Any') -> 'ToolBroker'",
+        "add_source": "(self, source: 'Source') -> 'ToolBroker'",
+        "add_tools": "(self, tools: 'Sequence[Tool]') -> 'IndexReport'",
+        "anthropic_tools": "(self, query: 'str', **kwargs: 'Any') -> 'list[dict[str, Any]]'",
+        "discover": "(self) -> 'list[Tool]'",
+        "drift": "property",
+        "embedder": "property",
+        "get": "(self, tool_id: 'str') -> 'Tool | None'",
+        "hooks": "property",
+        "index": "(self, tools: 'Sequence[Tool] | None' = None, *, replace: 'bool' = True) -> 'IndexReport'",
+        "last_refresh": "property",
+        "last_report": "property",
+        "openai_tools": "(self, query: 'str', **kwargs: 'Any') -> 'list[dict[str, Any]]'",
+        "pipeline": "property",
+        "policy": "property",
+        "record_use": "(self, tool_id: 'str', count: 'float' = 1.0) -> 'None'",
+        "record_uses": "(self, tool_ids: 'Iterable[str]') -> 'None'",
+        "refresh": "(self, *, prune: 'bool' = True) -> 'RefreshReport'",
+        "remove_tools": "(self, tool_ids: 'Sequence[str]') -> 'int'",
+        "render": "(self, adapter: 'str | Adapter', selection: 'Selection') -> 'Any'",
+        "savings": "property",
+        "select": "(self, query: 'str', *, k: 'int | None' = None, agent: 'str | None' = None, scopes: 'Iterable[str]' = (), tenant: 'str | None' = None, filters: 'Filters | None' = None, namespaces: 'Iterable[str] | None' = None, tags: 'Iterable[str] | None' = None) -> 'Selection'",
+        "select_for": "(self, adapter: 'str | Adapter', query: 'str', **kwargs: 'Any') -> 'tuple[Any, Selection]'",
+        "set_policy": "(self, policy: 'Policy') -> 'ToolBroker'",
+        "set_retriever": "(self, retriever: 'Retriever') -> 'ToolBroker'",
+        "sources": "property",
+        "stats": "(self) -> 'Mapping[str, Any]'",
+        "store": "property",
+        "sync_tools": "(self, tools: 'Sequence[Tool]', *, prune: 'bool' = True, known_sources: 'Sequence[str] | None' = None, failed_sources: 'Sequence[tuple[str, str]]' = ()) -> 'RefreshReport'",
+        "tools": "(self) -> 'list[Tool]'",
+        "usage": "property"
+      }
+    },
+    "ToolBrokerError": {
+      "bases": [
+        "Exception"
+      ],
+      "kind": "class",
+      "members": {}
+    },
+    "ToolChange": {
+      "bases": [
+        "BaseModel"
+      ],
+      "kind": "class",
+      "members": {
+        "describe": "(self) -> 'str'",
+        "field:after": "field",
+        "field:before": "field",
+        "field:kind": "field",
+        "field:quarantined": "field",
+        "field:tool_id": "field"
+      }
+    },
+    "ToolRecord": {
+      "bases": [
+        "_Frozen"
+      ],
+      "kind": "class",
+      "members": {
+        "field:text": "field",
+        "field:tool": "field",
+        "field:vector": "field",
+        "id": "property"
+      }
+    },
+    "Tracer": {
+      "bases": [
+        "Protocol"
+      ],
+      "kind": "class",
+      "members": {
+        "span": "(self, name: 'str', **attributes: 'Any') -> 'AbstractContextManager[Any]'"
+      }
+    },
+    "Turn": {
+      "bases": [],
+      "kind": "class",
+      "members": {
+        "role": "member_descriptor",
+        "text": "member_descriptor"
+      }
+    },
+    "UsageTracker": {
+      "bases": [],
+      "kind": "class",
+      "members": {
+        "clear": "(self) -> 'None'",
+        "count": "(self, tool_id: 'str') -> 'float'",
+        "counts": "(self) -> 'dict[str, float]'",
+        "half_life": "property",
+        "load": "classmethod",
+        "record": "(self, tool_id: 'str', count: 'float' = 1.0) -> 'None'",
+        "record_many": "(self, tool_ids: 'Iterable[str]') -> 'None'",
+        "save": "(self, path: 'str | Path') -> 'None'"
+      }
+    },
+    "aio": {
+      "kind": "module"
+    },
+    "calibrate_floor": {
+      "kind": "function",
+      "signature": "(broker: 'ToolBroker', *, noise: 'Sequence[str] | None' = None, samples: 'Sequence[str]' = (), percentiles: 'Sequence[int]' = (50, 75, 90, 95, 100), k: 'int' = 5) -> 'CalibrationReport'"
+    },
+    "classify_by_name": {
+      "kind": "function",
+      "signature": "(name: 'str', description: 'str' = '') -> 'RiskTier'"
+    },
+    "contextual_query": {
+      "kind": "function",
+      "signature": "(turns: 'Sequence[Turn] | Sequence[tuple[str, str]]', *, max_turns: 'int' = 2, weight: 'int' = 2, include_assistant: 'bool' = False) -> 'str'"
+    },
+    "diagnose_catalogue": {
+      "kind": "function",
+      "signature": "(broker: 'ToolBroker', *, k: 'int' = 5, samples: 'Sequence[str]' = (), min_description: 'int' = 16, margin: 'float | None' = None, pairs: 'int' = 20) -> 'CatalogueDiagnosis'"
+    },
+    "diff_policies": {
+      "kind": "function",
+      "signature": "(before: 'AgentPolicy', after: 'AgentPolicy', tools: 'Sequence[Tool]', *, scopes: 'frozenset[str]' = frozenset()) -> 'PolicyDiff'"
+    },
+    "reachable_tools": {
+      "kind": "function",
+      "signature": "(engine: 'PolicyEngine', tools: 'Sequence[Tool]', *, agent: 'str | None' = None, scopes: 'frozenset[str]' = frozenset()) -> 'AgentReach'"
+    }
+  },
+  "exports": [
+    "Adapter",
+    "AdapterError",
+    "AgentPolicy",
+    "AgentReach",
+    "AliasLearner",
+    "AllowTools",
+    "CalibrationReport",
+    "CatalogueDiagnosis",
+    "ConfigurationError",
+    "Conversation",
+    "CostTier",
+    "DROP",
+    "Decision",
+    "DenyTags",
+    "DenyTools",
+    "DriftGuard",
+    "Embedder",
+    "EmbeddingError",
+    "EnrichmentConfig",
+    "Event",
+    "Exclusion",
+    "Filters",
+    "Hit",
+    "HookManager",
+    "IndexReport",
+    "MaxCost",
+    "MaxRisk",
+    "MaxTools",
+    "MinScore",
+    "NotIndexedError",
+    "PeriodicRefresher",
+    "PluginError",
+    "Policy",
+    "PolicyDiff",
+    "PolicyEngine",
+    "PolicyError",
+    "PolicyViolationError",
+    "PredicateRule",
+    "RefreshReport",
+    "RequireScopes",
+    "RequireTags",
+    "Reranker",
+    "ResilientRetriever",
+    "RetrievalError",
+    "Retriever",
+    "RiskClassifier",
+    "RiskTier",
+    "RuleFiring",
+    "SavingsReport",
+    "SavingsTally",
+    "Selection",
+    "Source",
+    "SourceError",
+    "Stage",
+    "Store",
+    "StoreError",
+    "TenantIsolation",
+    "Tool",
+    "ToolBroker",
+    "ToolBrokerError",
+    "ToolChange",
+    "ToolRecord",
+    "Tracer",
+    "Turn",
+    "UsageTracker",
+    "__version__",
+    "aio",
+    "calibrate_floor",
+    "classify_by_name",
+    "contextual_query",
+    "diagnose_catalogue",
+    "diff_policies",
+    "reachable_tools"
+  ]
+}
