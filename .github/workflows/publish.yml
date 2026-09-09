@@ -126,6 +126,11 @@ jobs:
 
   # Manual runs go here instead. TestPyPI lets a bad description or a wrong
   # classifier fail somewhere that does not permanently consume a version.
+  #
+  # Core only, deliberately. What a dry run has to prove is that the trusted
+  # publisher handshake works and that the metadata survives an upload — one
+  # package establishes both. Publishing all ten would demand ten more pending
+  # publishers on TestPyPI to rehearse something the real index will do anyway.
   publish-testpypi:
     name: dry run to TestPyPI
     needs: build
@@ -139,6 +144,12 @@ jobs:
         with:
           name: dists
           path: dist/
+      - name: keep only the core distribution
+        run: |
+          mkdir -p core
+          mv dist/toolbroker-0*.whl dist/toolbroker-0*.tar.gz core/
+          rm -rf dist && mv core dist
+          ls dist/
       - uses: pypa/gh-action-pypi-publish@release/v1
         with:
           repository-url: https://test.pypi.org/legacy/
