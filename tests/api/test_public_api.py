@@ -115,16 +115,20 @@ def test_version_matches_the_packaging_metadata():
     They drifted once, in the direction that is hardest to spot: `pip show`
     reported 0.1.0 while `toolbroker --version` reported 0.1.0.dev0, because the
     version was written down in two places and only one was bumped.
+
+    Read with a regex rather than `tomllib`, which only exists from 3.11 and
+    would have made this guard skip the 3.10 floor it is meant to protect.
     """
+    import re
     from importlib import metadata
     from pathlib import Path
 
-    import tomllib
-
     import toolbroker
 
-    declared = tomllib.loads(
-        Path(__file__).resolve().parents[2].joinpath("pyproject.toml").read_text()
-    )["project"]["version"]
+    pyproject = Path(__file__).resolve().parents[2] / "pyproject.toml"
+    match = re.search(r'^version = "([^"]+)"', pyproject.read_text(encoding="utf-8"), re.MULTILINE)
+    assert match, "no version found in pyproject.toml"
+    declared = match.group(1)
+
     assert toolbroker.__version__ == declared
     assert metadata.version("toolbroker") == declared
