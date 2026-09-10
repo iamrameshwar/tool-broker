@@ -22,6 +22,12 @@ on:
   push:
     tags: ["v*"]
   workflow_dispatch:
+    inputs:
+      target:
+        description: "Where to publish"
+        type: choice
+        options: [testpypi, pypi]
+        default: testpypi
 
 permissions:
   contents: read
@@ -101,7 +107,9 @@ jobs:
   publish-core:
     name: publish toolbroker
     needs: build
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: >-
+      startsWith(github.ref, 'refs/tags/v')
+      || github.event.inputs.target == 'pypi'
     runs-on: ubuntu-latest
     environment: pypi
     permissions:
@@ -130,7 +138,9 @@ jobs:
   publish-plugins:
     name: publish the plugin packages
     needs: publish-core
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: >-
+      startsWith(github.ref, 'refs/tags/v')
+      || github.event.inputs.target == 'pypi'
     runs-on: ubuntu-latest
     environment: pypi
     permissions:
@@ -159,7 +169,9 @@ jobs:
   publish-testpypi:
     name: dry run to TestPyPI
     needs: build
-    if: github.event_name == 'workflow_dispatch'
+    if: >-
+      github.event_name == 'workflow_dispatch'
+      && github.event.inputs.target != 'pypi'
     runs-on: ubuntu-latest
     environment: testpypi
     permissions:
