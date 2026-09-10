@@ -12,6 +12,11 @@ name: publish
 #
 # `workflow_dispatch` publishes to TestPyPI instead, which is how you find out
 # your metadata is wrong without burning a version number on the real index.
+#
+# Trusted publishing is the default and the better option: nothing secret lives
+# in this repo. If the OIDC claims cannot be made to match, set the repository
+# secrets `PYPI_API_TOKEN` and `TEST_PYPI_API_TOKEN` and the jobs below use
+# those instead — same result, one secret to guard and rotate.
 
 on:
   push:
@@ -104,6 +109,9 @@ jobs:
           rm -rf dist && mv core dist
           ls dist/
       - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          # Empty means "use trusted publishing"; a value takes precedence.
+          password: ${{ secrets.PYPI_API_TOKEN }}
 
   publish-plugins:
     name: publish the plugin packages
@@ -123,6 +131,8 @@ jobs:
           rm -f dist/toolbroker-0*.whl dist/toolbroker-0*.tar.gz
           ls dist/
       - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
 
   # Manual runs go here instead. TestPyPI lets a bad description or a wrong
   # classifier fail somewhere that does not permanently consume a version.
@@ -154,3 +164,4 @@ jobs:
         with:
           repository-url: https://test.pypi.org/legacy/
           skip-existing: true
+          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
