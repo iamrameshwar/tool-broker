@@ -121,6 +121,11 @@ jobs:
         with:
           # Empty means "use trusted publishing"; a value takes precedence.
           password: ${{ secrets.PYPI_API_TOKEN }}
+          # PyPI rate-limits *new project* creation, and this repo asks for ten
+          # at once — the first release hit 429 partway through. Without this, a
+          # retry then fails on the packages that did upload, so the run can
+          # never go green and finish the job.
+          skip-existing: true
 
   publish-plugins:
     name: publish the plugin packages
@@ -142,6 +147,7 @@ jobs:
       - uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
+          skip-existing: true
 
   # Manual runs go here instead. TestPyPI lets a bad description or a wrong
   # classifier fail somewhere that does not permanently consume a version.
